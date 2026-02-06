@@ -1,0 +1,13 @@
+[
+    {
+        "action": "takeoff"
+    },
+    {
+        "action": "fly",
+        "distance": 10,
+        "speed": 1
+    },
+    {
+        "action": "land"
+    }
+]

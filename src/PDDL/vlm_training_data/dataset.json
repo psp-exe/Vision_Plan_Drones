@@ -1,0 +1,1503 @@
+{
+  "metadata": {
+    "created": "2026-02-03T10:42:59.415544",
+    "total_samples": 20,
+    "train_samples": 16,
+    "val_samples": 2,
+    "test_samples": 2
+  },
+  "train": [
+    {
+      "id": 15,
+      "image_path": "images/drone_img_015_high_forward_20260203_102952.png",
+      "instruction": "Capture image of the green crate at the receiving area.",
+      "vlm_output": {
+        "objects": [
+          {
+            "id": "green_crate_0016",
+            "type": "target",
+            "bbox": [
+              109,
+              380,
+              117,
+              64
+            ],
+            "estimated_coords": [
+              17.04,
+              -4.55, 
+              5.04
+            ]
+          }
+        ],
+        "goal": "(scanned green_crate_0016)"
+      },
+      "ground_truth": {
+        "object": {
+          "id": "green_crate_0016",
+          "category": "crate",
+          "color": "green",
+          "bbox": [
+            109,
+            380,
+            117,
+            64
+          ],
+          "world_coords": [
+            17.04,
+            -4.55,
+            5.04
+          ]
+        },
+        "drone_pose": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.5,
+          "roll": 0.0,
+          "pitch": 0.0,
+          "yaw": 0.0
+        },
+        "camera_intrinsics": {
+          "fx": 554.26,
+          "fy": 554.26,
+          "cx": 320.0,
+          "cy": 240.0
+        }
+      }
+    },
+    {
+      "id": 7,
+      "image_path": "images/drone_img_007_center_mid_20260203_102901.png",
+      "instruction": "Photograph the brown pallet near the loading dock.",
+      "vlm_output": {
+        "objects": [
+          {
+            "id": "brown_pallet_0008",
+            "type": "target",
+            "bbox": [
+              269,
+              256,
+              50,
+              142
+            ],
+            "estimated_coords": [
+              23.1,
+              0.15,
+              1.3
+            ]
+          },
+          {
+            "id": "gray_container_0008",
+            "type": "target",
+            "bbox": [
+              382,
+              390,
+              100,
+              69
+            ],
+            "estimated_coords": [
+              5.68,
+              9.07,
+              7.42
+            ]
+          },
+          {
+            "id": "purple_box_0008",
+            "type": "target",
+            "bbox": [
+              9,
+              57,
+              132,
+              112
+            ],
+            "estimated_coords": [
+              27.94,
+              7.57,
+              6.74
+            ]
+          }
+        ],
+        "goal": "(scanned brown_pallet_0008)"
+      },
+      "ground_truth": {
+        "objects": [
+          {
+            "id": "brown_pallet_0008",
+            "category": "pallet",
+            "color": "brown",
+            "bbox": [
+              269,
+              256,
+              50,
+              142
+            ],
+            "world_coords": [
+              23.1,
+              0.15,
+              1.3
+            ]
+          },
+          {
+            "id": "gray_container_0008",
+            "category": "container",
+            "color": "gray",
+            "bbox": [
+              382,
+              390,
+              100,
+              69
+            ],
+            "world_coords": [
+              5.68,
+              9.07,
+              7.42
+            ]
+          },
+          {
+            "id": "purple_box_0008",
+            "category": "box",
+            "color": "purple",
+            "bbox": [
+              9,
+              57,
+              132,
+              112
+            ],
+            "world_coords": [
+              27.94,
+              7.57,
+              6.74
+            ]
+          }
+        ],
+        "primary_target": "brown_pallet_0008"
+      }
+    },
+    {
+      "id": 9,
+      "image_path": "images/drone_img_009_mid_rot_20260203_102915.png",
+      "instruction": "Check the white carton.",
+      "vlm_output": {
+        "objects": [
+          {
+            "id": "white_carton_0010",
+            "type": "target",
+            "bbox": [
+              231,
+              61,
+              162,
+              116
+            ],
+            "estimated_coords": [
+              8.19,
+              -8.72,
+              0.66
+            ]
+          }
+        ],
+        "goal": "(scanned white_carton_0010)"
+      },
+      "ground_truth": {
+        "object": {
+          "id": "white_carton_0010",
+          "category": "carton",
+          "color": "white",
+          "bbox": [
+            231,
+            61,
+            162,
+            116
+          ],
+          "world_coords": [
+            8.19,
+            -8.72,
+            0.66
+          ]
+        },
+        "drone_pose": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.5,
+          "roll": 0.0,
+          "pitch": 0.0,
+          "yaw": 0.0
+        },
+        "camera_intrinsics": {
+          "fx": 554.26,
+          "fy": 554.26,
+          "cx": 320.0,
+          "cy": 240.0
+        }
+      }
+    },
+    {
+      "id": 4,
+      "image_path": "images/drone_img_004_right_low_rot_20260203_102841.png",
+      "instruction": "Go to the orange barrel in aisle 4.",
+      "vlm_output": {
+        "objects": [
+          {
+            "id": "orange_barrel_0005",
+            "type": "target",
+            "bbox": [
+              175,
+              273,
+              68,
+              127
+            ],
+            "estimated_coords": [
+              22.14,
+              -6.73,
+              3.35
+            ]
+          },
+          {
+            "id": "yellow_bin_0005",
+            "type": "target",
+            "bbox": [
+              393,
+              28,
+              133,
+              157
+            ],
+            "estimated_coords": [
+              7.64,
+              -9.36,
+              2.87
+            ]
+          },
+          {
+            "id": "blue_container_0005",
+            "type": "target",
+            "bbox": [
+              322,
+              108,
+              104,
+              122
+            ],
+            "estimated_coords": [
+              20.01,
+              -2.09,
+              7.36
+            ]
+          }
+        ],
+        "goal": "(scanned orange_barrel_0005)"
+      },
+      "ground_truth": {
+        "objects": [
+          {
+            "id": "orange_barrel_0005",
+            "category": "barrel",
+            "color": "orange",
+            "bbox": [
+              175,
+              273,
+              68,
+              127
+            ],
+            "world_coords": [
+              22.14,
+              -6.73,
+              3.35
+            ]
+          },
+          {
+            "id": "yellow_bin_0005",
+            "category": "bin",
+            "color": "yellow",
+            "bbox": [
+              393,
+              28,
+              133,
+              157
+            ],
+            "world_coords": [
+              7.64,
+              -9.36,
+              2.87
+            ]
+          },
+          {
+            "id": "blue_container_0005",
+            "category": "container",
+            "color": "blue",
+            "bbox": [
+              322,
+              108,
+              104,
+              122
+            ],
+            "world_coords": [
+              20.01,
+              -2.09,
+              7.36
+            ]
+          }
+        ],
+        "primary_target": "orange_barrel_0005"
+      }
+    },
+    {
+      "id": 2,
+      "image_path": "images/drone_img_002_front_low_rot_20260203_102828.png",
+      "instruction": "I need you to photograph the orange rack.",
+      "vlm_output": {
+        "objects": [
+          {
+            "id": "orange_rack_0003",
+            "type": "target",
+            "bbox": [
+              470,
+              274,
+              61,
+              143
+            ],
+            "estimated_coords": [
+              4.62,
+              8.45,
+              1.09
+            ]
+          }
+        ],
+        "goal": "(scanned orange_rack_0003)"
+      },
+      "ground_truth": {
+        "object": {
+          "id": "orange_rack_0003",
+          "category": "rack",
+          "color": "orange",
+          "bbox": [
+            470,
+            274,
+            61,
+            143
+          ],
+          "world_coords": [
+            4.62,
+            8.45,
+            1.09
+          ]
+        },
+        "drone_pose": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.5,
+          "roll": 0.0,
+          "pitch": 0.0,
+          "yaw": 0.0
+        },
+        "camera_intrinsics": {
+          "fx": 554.26,
+          "fy": 554.26,
+          "cx": 320.0,
+          "cy": 240.0
+        }
+      }
+    },
+    {
+      "id": 10,
+      "image_path": "images/drone_img_010_mid_forward_20260203_102922.png",
+      "instruction": "Document the yellow box at position 4-18.",
+      "vlm_output": {
+        "objects": [
+          {
+            "id": "yellow_box_0011",
+            "type": "target",
+            "bbox": [
+              338,
+              36,
+              67,
+              54
+            ],
+            "estimated_coords": [
+              15.91,
+              -4.43,
+              4.14
+            ]
+          },
+          {
+            "id": "green_bin_0011",
+            "type": "target",
+            "bbox": [
+              242,
+              124,
+              196,
+              123
+            ],
+            "estimated_coords": [
+              23.75,
+              6.15,
+              1.93
+            ]
+          },
+          {
+            "id": "black_crate_0011",
+            "type": "target",
+            "bbox": [
+              210,
+              239,
+              140,
+              104
+            ],
+            "estimated_coords": [
+              26.05,
+              -8.92,
+              5.4
+            ]
+          },
+          {
+            "id": "red_crate_0011",
+            "type": "target",
+            "bbox": [
+              173,
+              55,
+              153,
+              143
+            ],
+            "estimated_coords": [
+              8.21,
+              -6.2,
+              3.86
+            ]
+          }
+        ],
+        "goal": "(scanned yellow_box_0011)"
+      },
+      "ground_truth": {
+        "objects": [
+          {
+            "id": "yellow_box_0011",
+            "category": "box",
+            "color": "yellow",
+            "bbox": [
+              338,
+              36,
+              67,
+              54
+            ],
+            "world_coords": [
+              15.91,
+              -4.43,
+              4.14
+            ]
+          },
+          {
+            "id": "green_bin_0011",
+            "category": "bin",
+            "color": "green",
+            "bbox": [
+              242,
+              124,
+              196,
+              123
+            ],
+            "world_coords": [
+              23.75,
+              6.15,
+              1.93
+            ]
+          },
+          {
+            "id": "black_crate_0011",
+            "category": "crate",
+            "color": "black",
+            "bbox": [
+              210,
+              239,
+              140,
+              104
+            ],
+            "world_coords": [
+              26.05,
+              -8.92,
+              5.4
+            ]
+          },
+          {
+            "id": "red_crate_0011",
+            "category": "crate",
+            "color": "red",
+            "bbox": [
+              173,
+              55,
+              153,
+              143
+            ],
+            "world_coords": [
+              8.21,
+              -6.2,
+              3.86
+            ]
+          }
+        ],
+        "primary_target": "yellow_box_0011"
+      }
+    },
+    {
+      "id": 19,
+      "image_path": "images/drone_img_019_final_position_20260203_103019.png",
+      "instruction": "Go to the green container and document it.",
+      "vlm_output": {
+        "objects": [
+          {
+            "id": "green_container_0020",
+            "type": "target",
+            "bbox": [
+              19,
+              55,
+              198,
+              83
+            ],
+            "estimated_coords": [
+              18.3,
+              -3.09,
+              6.4
+            ]
+          }
+        ],
+        "goal": "(scanned green_container_0020)"
+      },
+      "ground_truth": {
+        "object": {
+          "id": "green_container_0020",
+          "category": "container",
+          "color": "green",
+          "bbox": [
+            19,
+            55,
+            198,
+            83
+          ],
+          "world_coords": [
+            18.3,
+            -3.09,
+            6.4
+          ]
+        },
+        "drone_pose": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.5,
+          "roll": 0.0,
+          "pitch": 0.0,
+          "yaw": 0.0
+        },
+        "camera_intrinsics": {
+          "fx": 554.26,
+          "fy": 554.26,
+          "cx": 320.0,
+          "cy": 240.0
+        }
+      }
+    },
+    {
+      "id": 13,
+      "image_path": "images/drone_img_013_high_altitude_20260203_102939.png",
+      "instruction": "Inspect the yellow package on the bottom shelf.",
+      "vlm_output": {
+        "objects": [
+          {
+            "id": "yellow_package_0014",
+            "type": "target",
+            "bbox": [
+              134,
+              343,
+              117,
+              100
+            ],
+            "estimated_coords": [
+              19.72,
+              -0.86,
+              7.47
+            ]
+          }
+        ],
+        "goal": "(scanned yellow_package_0014)"
+      },
+      "ground_truth": {
+        "object": {
+          "id": "yellow_package_0014",
+          "category": "package",
+          "color": "yellow",
+          "bbox": [
+            134,
+            343,
+            117,
+            100
+          ],
+          "world_coords": [
+            19.72,
+            -0.86,
+            7.47
+          ]
+        },
+        "drone_pose": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.5,
+          "roll": 0.0,
+          "pitch": 0.0,
+          "yaw": 0.0
+        },
+        "camera_intrinsics": {
+          "fx": 554.26,
+          "fy": 554.26,
+          "cx": 320.0,
+          "cy": 240.0
+        }
+      }
+    },
+    {
+      "id": 5,
+      "image_path": "images/drone_img_005_back_low_20260203_102849.png",
+      "instruction": "The gray pallet needs to be documented.",
+      "vlm_output": {
+        "objects": [
+          {
+            "id": "gray_pallet_0006",
+            "type": "target",
+            "bbox": [
+              386,
+              24,
+              176,
+              61
+            ],
+            "estimated_coords": [
+              25.97,
+              -6.94,
+              1.7
+            ]
+          }
+        ],
+        "goal": "(scanned gray_pallet_0006)"
+      },
+      "ground_truth": {
+        "object": {
+          "id": "gray_pallet_0006",
+          "category": "pallet",
+          "color": "gray",
+          "bbox": [
+            386,
+            24,
+            176,
+            61
+          ],
+          "world_coords": [
+            25.97,
+            -6.94,
+            1.7
+          ]
+        },
+        "drone_pose": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.5,
+          "roll": 0.0,
+          "pitch": 0.0,
+          "yaw": 0.0
+        },
+        "camera_intrinsics": {
+          "fx": 554.26,
+          "fy": 554.26,
+          "cx": 320.0,
+          "cy": 240.0
+        }
+      }
+    },
+    {
+      "id": 3,
+      "image_path": "images/drone_img_003_right_low_20260203_102836.png",
+      "instruction": "I need you to survey the red crate.",
+      "vlm_output": {
+        "objects": [
+          {
+            "id": "red_crate_0004",
+            "type": "target",
+            "bbox": [
+              296,
+              40,
+              108,
+              148
+            ],
+            "estimated_coords": [
+              25.8,
+              7.33,
+              3.35
+            ]
+          }
+        ],
+        "goal": "(scanned red_crate_0004)"
+      },
+      "ground_truth": {
+        "object": {
+          "id": "red_crate_0004",
+          "category": "crate",
+          "color": "red",
+          "bbox": [
+            296,
+            40,
+            108,
+            148
+          ],
+          "world_coords": [
+            25.8,
+            7.33,
+            3.35
+          ]
+        },
+        "drone_pose": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.5,
+          "roll": 0.0,
+          "pitch": 0.0,
+          "yaw": 0.0
+        },
+        "camera_intrinsics": {
+          "fx": 554.26,
+          "fy": 554.26,
+          "cx": 320.0,
+          "cy": 240.0
+        }
+      }
+    },
+    {
+      "id": 14,
+      "image_path": "images/drone_img_014_high_rot_20260203_102943.png",
+      "instruction": "Find the yellow crate and scan it.",
+      "vlm_output": {
+        "objects": [
+          {
+            "id": "yellow_crate_0015",
+            "type": "target",
+            "bbox": [
+              80,
+              224,
+              144,
+              86
+            ],
+            "estimated_coords": [
+              25.18,
+              4.07,
+              5.09
+            ]
+          }
+        ],
+        "goal": "(scanned yellow_crate_0015)"
+      },
+      "ground_truth": {
+        "object": {
+          "id": "yellow_crate_0015",
+          "category": "crate",
+          "color": "yellow",
+          "bbox": [
+            80,
+            224,
+            144,
+            86
+          ],
+          "world_coords": [
+            25.18,
+            4.07,
+            5.09
+          ]
+        },
+        "drone_pose": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.5,
+          "roll": 0.0,
+          "pitch": 0.0,
+          "yaw": 0.0
+        },
+        "camera_intrinsics": {
+          "fx": 554.26,
+          "fy": 554.26,
+          "cx": 320.0,
+          "cy": 240.0
+        }
+      }
+    },
+    {
+      "id": 16,
+      "image_path": "images/drone_img_016_return_high_20260203_102959.png",
+      "instruction": "Go to the red container and document it.",
+      "vlm_output": {
+        "objects": [
+          {
+            "id": "red_container_0017",
+            "type": "target",
+            "bbox": [
+              133,
+              326,
+              50,
+              92
+            ],
+            "estimated_coords": [
+              29.41,
+              -6.77,
+              3.81
+            ]
+          }
+        ],
+        "goal": "(scanned red_container_0017)"
+      },
+      "ground_truth": {
+        "object": {
+          "id": "red_container_0017",
+          "category": "container",
+          "color": "red",
+          "bbox": [
+            133,
+            326,
+            50,
+            92
+          ],
+          "world_coords": [
+            29.41,
+            -6.77,
+            3.81
+          ]
+        },
+        "drone_pose": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.5,
+          "roll": 0.0,
+          "pitch": 0.0,
+          "yaw": 0.0
+        },
+        "camera_intrinsics": {
+          "fx": 554.26,
+          "fy": 554.26,
+          "cx": 320.0,
+          "cy": 240.0
+        }
+      }
+    },
+    {
+      "id": 0,
+      "image_path": "images/drone_img_000_center_low_20260203_102816.png",
+      "instruction": "Document the orange box on the bottom shelf.",
+      "vlm_output": {
+        "objects": [
+          {
+            "id": "orange_box_0001",
+            "type": "target",
+            "bbox": [
+              142,
+              377,
+              112,
+              78
+            ],
+            "estimated_coords": [
+              3.97,
+              4.81,
+              4.59
+            ]
+          }
+        ],
+        "goal": "(scanned orange_box_0001)"
+      },
+      "ground_truth": {
+        "object": {
+          "id": "orange_box_0001",
+          "category": "box",
+          "color": "orange",
+          "bbox": [
+            142,
+            377,
+            112,
+            78
+          ],
+          "world_coords": [
+            3.97,
+            4.81,
+            4.59
+          ]
+        },
+        "drone_pose": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.5,
+          "roll": 0.0,
+          "pitch": 0.0,
+          "yaw": 0.0
+        },
+        "camera_intrinsics": {
+          "fx": 554.26,
+          "fy": 554.26,
+          "cx": 320.0,
+          "cy": 240.0
+        }
+      }
+    },
+    {
+      "id": 17,
+      "image_path": "images/drone_img_017_return_mid_20260203_103007.png",
+      "instruction": "Check the gray pallet at position 2-8.",
+      "vlm_output": {
+        "objects": [
+          {
+            "id": "gray_pallet_0018",
+            "type": "target",
+            "bbox": [
+              378,
+              298,
+              59,
+              156
+            ],
+            "estimated_coords": [
+              17.02,
+              -1.4,
+              0.81
+            ]
+          },
+          {
+            "id": "red_package_0018",
+            "type": "target",
+            "bbox": [
+              349,
+              127,
+              141,
+              76
+            ],
+            "estimated_coords": [
+              20.34,
+              -2.93,
+              4.7
+            ]
+          },
+          {
+            "id": "purple_carton_0018",
+            "type": "target",
+            "bbox": [
+              166,
+              90,
+              89,
+              80
+            ],
+            "estimated_coords": [
+              26.56,
+              -9.5,
+              6.02
+            ]
+          },
+          {
+            "id": "black_package_0018",
+            "type": "target",
+            "bbox": [
+              163,
+              359,
+              113,
+              84
+            ],
+            "estimated_coords": [
+              4.13,
+              7.44,
+              6.94
+            ]
+          }
+        ],
+        "goal": "(scanned gray_pallet_0018)"
+      },
+      "ground_truth": {
+        "objects": [
+          {
+            "id": "gray_pallet_0018",
+            "category": "pallet",
+            "color": "gray",
+            "bbox": [
+              378,
+              298,
+              59,
+              156
+            ],
+            "world_coords": [
+              17.02,
+              -1.4,
+              0.81
+            ]
+          },
+          {
+            "id": "red_package_0018",
+            "category": "package",
+            "color": "red",
+            "bbox": [
+              349,
+              127,
+              141,
+              76
+            ],
+            "world_coords": [
+              20.34,
+              -2.93,
+              4.7
+            ]
+          },
+          {
+            "id": "purple_carton_0018",
+            "category": "carton",
+            "color": "purple",
+            "bbox": [
+              166,
+              90,
+              89,
+              80
+            ],
+            "world_coords": [
+              26.56,
+              -9.5,
+              6.02
+            ]
+          },
+          {
+            "id": "black_package_0018",
+            "category": "package",
+            "color": "black",
+            "bbox": [
+              163,
+              359,
+              113,
+              84
+            ],
+            "world_coords": [
+              4.13,
+              7.44,
+              6.94
+            ]
+          }
+        ],
+        "primary_target": "gray_pallet_0018"
+      }
+    },
+    {
+      "id": 11,
+      "image_path": "images/drone_img_011_mid_forward_rot_20260203_102926.png",
+      "instruction": "Go to the blue box and inspect it.",
+      "vlm_output": {
+        "objects": [
+          {
+            "id": "blue_box_0012",
+            "type": "target",
+            "bbox": [
+              416,
+              248,
+              110,
+              71
+            ],
+            "estimated_coords": [
+              14.96,
+              7.29,
+              7.27
+            ]
+          },
+          {
+            "id": "black_pallet_0012",
+            "type": "target",
+            "bbox": [
+              271,
+              232,
+              50,
+              99
+            ],
+            "estimated_coords": [
+              9.27,
+              3.93,
+              5.98
+            ]
+          },
+          {
+            "id": "brown_bin_0012",
+            "type": "target",
+            "bbox": [
+              303,
+              111,
+              89,
+              74
+            ],
+            "estimated_coords": [
+              29.09,
+              1.58,
+              4.57
+            ]
+          },
+          {
+            "id": "red_package_0012",
+            "type": "target",
+            "bbox": [
+              488,
+              257,
+              62,
+              124
+            ],
+            "estimated_coords": [
+              27.66,
+              0.62,
+              0.93
+            ]
+          }
+        ],
+        "goal": "(scanned blue_box_0012)"
+      },
+      "ground_truth": {
+        "objects": [
+          {
+            "id": "blue_box_0012",
+            "category": "box",
+            "color": "blue",
+            "bbox": [
+              416,
+              248,
+              110,
+              71
+            ],
+            "world_coords": [
+              14.96,
+              7.29,
+              7.27
+            ]
+          },
+          {
+            "id": "black_pallet_0012",
+            "category": "pallet",
+            "color": "black",
+            "bbox": [
+              271,
+              232,
+              50,
+              99
+            ],
+            "world_coords": [
+              9.27,
+              3.93,
+              5.98
+            ]
+          },
+          {
+            "id": "brown_bin_0012",
+            "category": "bin",
+            "color": "brown",
+            "bbox": [
+              303,
+              111,
+              89,
+              74
+            ],
+            "world_coords": [
+              29.09,
+              1.58,
+              4.57
+            ]
+          },
+          {
+            "id": "red_package_0012",
+            "category": "package",
+            "color": "red",
+            "bbox": [
+              488,
+              257,
+              62,
+              124
+            ],
+            "world_coords": [
+              27.66,
+              0.62,
+              0.93
+            ]
+          }
+        ],
+        "primary_target": "blue_box_0012"
+      }
+    },
+    {
+      "id": 1,
+      "image_path": "images/drone_img_001_front_low_20260203_102824.png",
+      "instruction": "Go to the black bin on rack 2.",
+      "vlm_output": {
+        "objects": [
+          {
+            "id": "black_bin_0002",
+            "type": "target",
+            "bbox": [
+              284,
+              3,
+              106,
+              107
+            ],
+            "estimated_coords": [
+              23.01,
+              -6.81,
+              3.67
+            ]
+          }
+        ],
+        "goal": "(scanned black_bin_0002)"
+      },
+      "ground_truth": {
+        "object": {
+          "id": "black_bin_0002",
+          "category": "bin",
+          "color": "black",
+          "bbox": [
+            284,
+            3,
+            106,
+            107
+          ],
+          "world_coords": [
+            23.01,
+            -6.81,
+            3.67
+          ]
+        },
+        "drone_pose": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.5,
+          "roll": 0.0,
+          "pitch": 0.0,
+          "yaw": 0.0
+        },
+        "camera_intrinsics": {
+          "fx": 554.26,
+          "fy": 554.26,
+          "cx": 320.0,
+          "cy": 240.0
+        }
+      }
+    }
+  ],
+  "validation": [
+    {
+      "id": 8,
+      "image_path": "images/drone_img_008_mid_altitude_20260203_102908.png",
+      "instruction": "Navigate to and check the green bin.",
+      "vlm_output": {
+        "objects": [
+          {
+            "id": "green_bin_0009",
+            "type": "target",
+            "bbox": [
+              486,
+              281,
+              82,
+              134
+            ],
+            "estimated_coords": [
+              5.79,
+              0.55,
+              5.05
+            ]
+          }
+        ],
+        "goal": "(scanned green_bin_0009)"
+      },
+      "ground_truth": {
+        "object": {
+          "id": "green_bin_0009",
+          "category": "bin",
+          "color": "green",
+          "bbox": [
+            486,
+            281,
+            82,
+            134
+          ],
+          "world_coords": [
+            5.79,
+            0.55,
+            5.05
+          ]
+        },
+        "drone_pose": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.5,
+          "roll": 0.0,
+          "pitch": 0.0,
+          "yaw": 0.0
+        },
+        "camera_intrinsics": {
+          "fx": 554.26,
+          "fy": 554.26,
+          "cx": 320.0,
+          "cy": 240.0
+        }
+      }
+    },
+    {
+      "id": 6,
+      "image_path": "images/drone_img_006_back_low_rot_20260203_102853.png",
+      "instruction": "I need you to photograph the gray drum.",
+      "vlm_output": {
+        "objects": [
+          {
+            "id": "gray_drum_0007",
+            "type": "target",
+            "bbox": [
+              11,
+              348,
+              114,
+              120
+            ],
+            "estimated_coords": [
+              21.9,
+              3.63,
+              4.53
+            ]
+          }
+        ],
+        "goal": "(scanned gray_drum_0007)"
+      },
+      "ground_truth": {
+        "object": {
+          "id": "gray_drum_0007",
+          "category": "drum",
+          "color": "gray",
+          "bbox": [
+            11,
+            348,
+            114,
+            120
+          ],
+          "world_coords": [
+            21.9,
+            3.63,
+            4.53
+          ]
+        },
+        "drone_pose": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.5,
+          "roll": 0.0,
+          "pitch": 0.0,
+          "yaw": 0.0
+        },
+        "camera_intrinsics": {
+          "fx": 554.26,
+          "fy": 554.26,
+          "cx": 320.0,
+          "cy": 240.0
+        }
+      }
+    }
+  ],
+  "test": [
+    {
+      "id": 18,
+      "image_path": "images/drone_img_018_return_low_20260203_103013.png",
+      "instruction": "Go to the white carton and capture image of it.",
+      "vlm_output": {
+        "objects": [
+          {
+            "id": "white_carton_0019",
+            "type": "target",
+            "bbox": [
+              71,
+              142,
+              121,
+              160
+            ],
+            "estimated_coords": [
+              11.18,
+              0.19,
+              5.6
+            ]
+          }
+        ],
+        "goal": "(scanned white_carton_0019)"
+      },
+      "ground_truth": {
+        "object": {
+          "id": "white_carton_0019",
+          "category": "carton",
+          "color": "white",
+          "bbox": [
+            71,
+            142,
+            121,
+            160
+          ],
+          "world_coords": [
+            11.18,
+            0.19,
+            5.6
+          ]
+        },
+        "drone_pose": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.5,
+          "roll": 0.0,
+          "pitch": 0.0,
+          "yaw": 0.0
+        },
+        "camera_intrinsics": {
+          "fx": 554.26,
+          "fy": 554.26,
+          "cx": 320.0,
+          "cy": 240.0
+        }
+      }
+    },
+    {
+      "id": 12,
+      "image_path": "images/drone_img_012_high_pos_20260203_102933.png",
+      "instruction": "Navigate to and capture image of the black barrel.",
+      "vlm_output": {
+        "objects": [
+          {
+            "id": "black_barrel_0013",
+            "type": "target",
+            "bbox": [
+              252,
+              296,
+              80,
+              122
+            ],
+            "estimated_coords": [
+              18.24,
+              2.39,
+              3.64
+            ]
+          }
+        ],
+        "goal": "(scanned black_barrel_0013)"
+      },
+      "ground_truth": {
+        "object": {
+          "id": "black_barrel_0013",
+          "category": "barrel",
+          "color": "black",
+          "bbox": [
+            252,
+            296,
+            80,
+            122
+          ],
+          "world_coords": [
+            18.24,
+            2.39,
+            3.64
+          ]
+        },
+        "drone_pose": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.5,
+          "roll": 0.0,
+          "pitch": 0.0,
+          "yaw": 0.0
+        },
+        "camera_intrinsics": {
+          "fx": 554.26,
+          "fy": 554.26,
+          "cx": 320.0,
+          "cy": 240.0
+        }
+      }
+    }
+  ]
+}

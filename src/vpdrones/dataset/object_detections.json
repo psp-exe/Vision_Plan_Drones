@@ -1,0 +1,2306 @@
+[
+  {
+    "image_file": "drone_img_000_center_low_20260202_130047.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_000_center_low_20260202_130047.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 416,
+          "y": 51,
+          "width": 62,
+          "height": 240
+        },
+        "confidence": 0.8697804808616638
+      },
+      {
+        "object": "container",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 245,
+          "y": 160,
+          "width": 24,
+          "height": 77
+        },
+        "confidence": 0.6421025395393372
+      },
+      {
+        "object": "container",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 272,
+          "y": 163,
+          "width": 20,
+          "height": 66
+        },
+        "confidence": 0.6049739718437195
+      },
+      {
+        "object": "container",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 213,
+          "y": 155,
+          "width": 33,
+          "height": 93
+        },
+        "confidence": 0.31987977027893066
+      },
+      {
+        "object": "umbrella",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 61,
+          "y": 136,
+          "width": 89,
+          "height": 181
+        },
+        "confidence": 0.3061138391494751
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_000_center_low_20260202_130047_nogrid.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_000_center_low_20260202_130047_nogrid.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 416,
+          "y": 51,
+          "width": 62,
+          "height": 240
+        },
+        "confidence": 0.8697804808616638
+      },
+      {
+        "object": "container",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 245,
+          "y": 160,
+          "width": 24,
+          "height": 77
+        },
+        "confidence": 0.6421025395393372
+      },
+      {
+        "object": "container",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 272,
+          "y": 163,
+          "width": 20,
+          "height": 66
+        },
+        "confidence": 0.6049739718437195
+      },
+      {
+        "object": "container",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 213,
+          "y": 155,
+          "width": 33,
+          "height": 93
+        },
+        "confidence": 0.31987977027893066
+      },
+      {
+        "object": "umbrella",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 61,
+          "y": 136,
+          "width": 89,
+          "height": 181
+        },
+        "confidence": 0.3061138391494751
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_001_front_low_20260202_130055.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_001_front_low_20260202_130055.png",
+    "objects": [
+      {
+        "object": "vase",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 179,
+          "y": 149,
+          "width": 60,
+          "height": 156
+        },
+        "confidence": 0.3226489722728729
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_001_front_low_20260202_130055_nogrid.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_001_front_low_20260202_130055_nogrid.png",
+    "objects": [
+      {
+        "object": "vase",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 179,
+          "y": 149,
+          "width": 60,
+          "height": 156
+        },
+        "confidence": 0.3226489722728729
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_002_front_low_rot_20260202_130100.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_002_front_low_rot_20260202_130100.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 7,
+          "y": 55,
+          "width": 88,
+          "height": 222
+        },
+        "confidence": 0.7404788732528687
+      },
+      {
+        "object": "umbrella",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 66,
+          "y": 132,
+          "width": 92,
+          "height": 200
+        },
+        "confidence": 0.3921779990196228
+      },
+      {
+        "object": "umbrella",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 0,
+          "y": 134,
+          "width": 72,
+          "height": 203
+        },
+        "confidence": 0.316347599029541
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_002_front_low_rot_20260202_130100_nogrid.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_002_front_low_rot_20260202_130100_nogrid.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 7,
+          "y": 55,
+          "width": 88,
+          "height": 222
+        },
+        "confidence": 0.7404788732528687
+      },
+      {
+        "object": "umbrella",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 66,
+          "y": 132,
+          "width": 92,
+          "height": 200
+        },
+        "confidence": 0.3921779990196228
+      },
+      {
+        "object": "umbrella",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 0,
+          "y": 134,
+          "width": 72,
+          "height": 203
+        },
+        "confidence": 0.316347599029541
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_003_right_low_20260202_130108.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_003_right_low_20260202_130108.png",
+    "objects": [
+      {
+        "object": "umbrella",
+        "grid_cell": 6,
+        "grid_location": "bottom_left",
+        "bbox": {
+          "x": 0,
+          "y": 154,
+          "width": 38,
+          "height": 196
+        },
+        "confidence": 0.544994592666626
+      },
+      {
+        "object": "furniture",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 142,
+          "y": 137,
+          "width": 61,
+          "height": 65
+        },
+        "confidence": 0.4491793215274811
+      },
+      {
+        "object": "bench",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 142,
+          "y": 137,
+          "width": 61,
+          "height": 65
+        },
+        "confidence": 0.3948536813259125
+      },
+      {
+        "object": "umbrella",
+        "grid_cell": 6,
+        "grid_location": "bottom_left",
+        "bbox": {
+          "x": 32,
+          "y": 149,
+          "width": 119,
+          "height": 208
+        },
+        "confidence": 0.3913814127445221
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_003_right_low_20260202_130108_nogrid.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_003_right_low_20260202_130108_nogrid.png",
+    "objects": [
+      {
+        "object": "umbrella",
+        "grid_cell": 6,
+        "grid_location": "bottom_left",
+        "bbox": {
+          "x": 0,
+          "y": 154,
+          "width": 38,
+          "height": 196
+        },
+        "confidence": 0.544994592666626
+      },
+      {
+        "object": "furniture",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 142,
+          "y": 137,
+          "width": 61,
+          "height": 65
+        },
+        "confidence": 0.4491793215274811
+      },
+      {
+        "object": "bench",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 142,
+          "y": 137,
+          "width": 61,
+          "height": 65
+        },
+        "confidence": 0.3948536813259125
+      },
+      {
+        "object": "umbrella",
+        "grid_cell": 6,
+        "grid_location": "bottom_left",
+        "bbox": {
+          "x": 32,
+          "y": 149,
+          "width": 119,
+          "height": 208
+        },
+        "confidence": 0.3913814127445221
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_004_right_low_rot_20260202_130112.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_004_right_low_rot_20260202_130112.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 70,
+          "y": 41,
+          "width": 82,
+          "height": 313
+        },
+        "confidence": 0.9006639122962952
+      },
+      {
+        "object": "worker",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 197,
+          "y": 148,
+          "width": 19,
+          "height": 66
+        },
+        "confidence": 0.7139798402786255
+      },
+      {
+        "object": "container",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 440,
+          "y": 160,
+          "width": 89,
+          "height": 196
+        },
+        "confidence": 0.3979393243789673
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 345,
+          "y": 140,
+          "width": 18,
+          "height": 45
+        },
+        "confidence": 0.3440878391265869
+      },
+      {
+        "object": "frisbee",
+        "grid_cell": 1,
+        "grid_location": "top_center",
+        "bbox": {
+          "x": 265,
+          "y": 84,
+          "width": 34,
+          "height": 33
+        },
+        "confidence": 0.30071374773979187
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_004_right_low_rot_20260202_130112_nogrid.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_004_right_low_rot_20260202_130112_nogrid.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 70,
+          "y": 41,
+          "width": 82,
+          "height": 313
+        },
+        "confidence": 0.9006639122962952
+      },
+      {
+        "object": "worker",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 197,
+          "y": 148,
+          "width": 19,
+          "height": 66
+        },
+        "confidence": 0.7139798402786255
+      },
+      {
+        "object": "container",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 440,
+          "y": 160,
+          "width": 89,
+          "height": 196
+        },
+        "confidence": 0.3979393243789673
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 345,
+          "y": 140,
+          "width": 18,
+          "height": 45
+        },
+        "confidence": 0.3440878391265869
+      },
+      {
+        "object": "frisbee",
+        "grid_cell": 1,
+        "grid_location": "top_center",
+        "bbox": {
+          "x": 265,
+          "y": 84,
+          "width": 34,
+          "height": 33
+        },
+        "confidence": 0.30071374773979187
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_005_back_low_20260202_130120.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_005_back_low_20260202_130120.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 226,
+          "y": 125,
+          "width": 22,
+          "height": 117
+        },
+        "confidence": 0.8353802561759949
+      },
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 477,
+          "y": 156,
+          "width": 17,
+          "height": 45
+        },
+        "confidence": 0.7140486836433411
+      },
+      {
+        "object": "worker",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 191,
+          "y": 156,
+          "width": 10,
+          "height": 44
+        },
+        "confidence": 0.6717997789382935
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 343,
+          "y": 149,
+          "width": 12,
+          "height": 27
+        },
+        "confidence": 0.6025630235671997
+      },
+      {
+        "object": "frisbee",
+        "grid_cell": 1,
+        "grid_location": "top_center",
+        "bbox": {
+          "x": 280,
+          "y": 92,
+          "width": 29,
+          "height": 29
+        },
+        "confidence": 0.5905194282531738
+      },
+      {
+        "object": "worker",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 171,
+          "y": 164,
+          "width": 8,
+          "height": 29
+        },
+        "confidence": 0.5510554313659668
+      },
+      {
+        "object": "worker",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 82,
+          "y": 142,
+          "width": 10,
+          "height": 34
+        },
+        "confidence": 0.3362654745578766
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_005_back_low_20260202_130120_nogrid.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_005_back_low_20260202_130120_nogrid.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 226,
+          "y": 125,
+          "width": 22,
+          "height": 117
+        },
+        "confidence": 0.8353802561759949
+      },
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 477,
+          "y": 156,
+          "width": 17,
+          "height": 45
+        },
+        "confidence": 0.7140486836433411
+      },
+      {
+        "object": "worker",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 191,
+          "y": 156,
+          "width": 10,
+          "height": 44
+        },
+        "confidence": 0.6717997789382935
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 343,
+          "y": 149,
+          "width": 12,
+          "height": 27
+        },
+        "confidence": 0.6025630235671997
+      },
+      {
+        "object": "frisbee",
+        "grid_cell": 1,
+        "grid_location": "top_center",
+        "bbox": {
+          "x": 280,
+          "y": 92,
+          "width": 29,
+          "height": 29
+        },
+        "confidence": 0.5905194282531738
+      },
+      {
+        "object": "worker",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 171,
+          "y": 164,
+          "width": 8,
+          "height": 29
+        },
+        "confidence": 0.5510554313659668
+      },
+      {
+        "object": "worker",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 82,
+          "y": 142,
+          "width": 10,
+          "height": 34
+        },
+        "confidence": 0.3362654745578766
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_006_back_low_rot_20260202_130125.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_006_back_low_rot_20260202_130125.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 570,
+          "y": 153,
+          "width": 18,
+          "height": 61
+        },
+        "confidence": 0.8174905180931091
+      },
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 532,
+          "y": 164,
+          "width": 11,
+          "height": 37
+        },
+        "confidence": 0.7921184301376343
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 337,
+          "y": 159,
+          "width": 16,
+          "height": 43
+        },
+        "confidence": 0.6994698643684387
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_006_back_low_rot_20260202_130125_nogrid.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_006_back_low_rot_20260202_130125_nogrid.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 570,
+          "y": 153,
+          "width": 18,
+          "height": 61
+        },
+        "confidence": 0.8174905180931091
+      },
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 532,
+          "y": 164,
+          "width": 11,
+          "height": 37
+        },
+        "confidence": 0.7921184301376343
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 337,
+          "y": 159,
+          "width": 16,
+          "height": 43
+        },
+        "confidence": 0.6994698643684387
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_007_center_mid_20260202_130133.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_007_center_mid_20260202_130133.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 357,
+          "y": 162,
+          "width": 12,
+          "height": 43
+        },
+        "confidence": 0.8070161938667297
+      },
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 565,
+          "y": 157,
+          "width": 16,
+          "height": 54
+        },
+        "confidence": 0.5022735595703125
+      },
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 521,
+          "y": 165,
+          "width": 9,
+          "height": 33
+        },
+        "confidence": 0.45028549432754517
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_007_center_mid_20260202_130133_nogrid.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_007_center_mid_20260202_130133_nogrid.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 357,
+          "y": 162,
+          "width": 12,
+          "height": 43
+        },
+        "confidence": 0.8070161938667297
+      },
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 565,
+          "y": 157,
+          "width": 16,
+          "height": 54
+        },
+        "confidence": 0.5022735595703125
+      },
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 521,
+          "y": 165,
+          "width": 9,
+          "height": 33
+        },
+        "confidence": 0.45028549432754517
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_008_mid_altitude_20260202_130139.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_008_mid_altitude_20260202_130139.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 389,
+          "y": 195,
+          "width": 14,
+          "height": 47
+        },
+        "confidence": 0.7228547930717468
+      },
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 597,
+          "y": 194,
+          "width": 12,
+          "height": 39
+        },
+        "confidence": 0.7212845087051392
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_008_mid_altitude_20260202_130139_nogrid.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_008_mid_altitude_20260202_130139_nogrid.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 389,
+          "y": 195,
+          "width": 14,
+          "height": 47
+        },
+        "confidence": 0.7228547930717468
+      },
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 597,
+          "y": 194,
+          "width": 12,
+          "height": 39
+        },
+        "confidence": 0.7212845087051392
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_009_mid_rot_20260202_130146.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_009_mid_rot_20260202_130146.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 158,
+          "y": 197,
+          "width": 13,
+          "height": 39
+        },
+        "confidence": 0.6940830945968628
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_009_mid_rot_20260202_130146_nogrid.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_009_mid_rot_20260202_130146_nogrid.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 158,
+          "y": 197,
+          "width": 13,
+          "height": 39
+        },
+        "confidence": 0.6940830945968628
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_010_mid_forward_20260202_130153.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_010_mid_forward_20260202_130153.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 160,
+          "y": 198,
+          "width": 15,
+          "height": 44
+        },
+        "confidence": 0.6826727986335754
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_010_mid_forward_20260202_130153_nogrid.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_010_mid_forward_20260202_130153_nogrid.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 160,
+          "y": 198,
+          "width": 15,
+          "height": 44
+        },
+        "confidence": 0.6826727986335754
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_011_mid_forward_rot_20260202_130157.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_011_mid_forward_rot_20260202_130157.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 6,
+        "grid_location": "bottom_left",
+        "bbox": {
+          "x": 7,
+          "y": 207,
+          "width": 33,
+          "height": 72
+        },
+        "confidence": 0.823992908000946
+      },
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 520,
+          "y": 199,
+          "width": 21,
+          "height": 52
+        },
+        "confidence": 0.767726719379425
+      },
+      {
+        "object": "worker",
+        "grid_cell": 7,
+        "grid_location": "bottom_center",
+        "bbox": {
+          "x": 266,
+          "y": 213,
+          "width": 13,
+          "height": 73
+        },
+        "confidence": 0.6966016292572021
+      },
+      {
+        "object": "frisbee",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 324,
+          "y": 121,
+          "width": 26,
+          "height": 27
+        },
+        "confidence": 0.5425175428390503
+      },
+      {
+        "object": "worker",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 34,
+          "y": 217,
+          "width": 12,
+          "height": 43
+        },
+        "confidence": 0.5063387751579285
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 282,
+          "y": 191,
+          "width": 9,
+          "height": 40
+        },
+        "confidence": 0.4671061933040619
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 241,
+          "y": 188,
+          "width": 6,
+          "height": 24
+        },
+        "confidence": 0.40125542879104614
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 370,
+          "y": 188,
+          "width": 9,
+          "height": 24
+        },
+        "confidence": 0.3668847382068634
+      },
+      {
+        "object": "worker",
+        "grid_cell": 7,
+        "grid_location": "bottom_center",
+        "bbox": {
+          "x": 342,
+          "y": 214,
+          "width": 30,
+          "height": 117
+        },
+        "confidence": 0.33453264832496643
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 362,
+          "y": 199,
+          "width": 11,
+          "height": 50
+        },
+        "confidence": 0.3114335834980011
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_011_mid_forward_rot_20260202_130157_nogrid.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_011_mid_forward_rot_20260202_130157_nogrid.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 6,
+        "grid_location": "bottom_left",
+        "bbox": {
+          "x": 7,
+          "y": 207,
+          "width": 33,
+          "height": 72
+        },
+        "confidence": 0.823992908000946
+      },
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 520,
+          "y": 199,
+          "width": 21,
+          "height": 52
+        },
+        "confidence": 0.767726719379425
+      },
+      {
+        "object": "worker",
+        "grid_cell": 7,
+        "grid_location": "bottom_center",
+        "bbox": {
+          "x": 266,
+          "y": 213,
+          "width": 13,
+          "height": 73
+        },
+        "confidence": 0.6966016292572021
+      },
+      {
+        "object": "frisbee",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 324,
+          "y": 121,
+          "width": 26,
+          "height": 27
+        },
+        "confidence": 0.5425175428390503
+      },
+      {
+        "object": "worker",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 34,
+          "y": 217,
+          "width": 12,
+          "height": 43
+        },
+        "confidence": 0.5063387751579285
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 282,
+          "y": 191,
+          "width": 9,
+          "height": 40
+        },
+        "confidence": 0.4671061933040619
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 241,
+          "y": 188,
+          "width": 6,
+          "height": 24
+        },
+        "confidence": 0.40125542879104614
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 370,
+          "y": 188,
+          "width": 9,
+          "height": 24
+        },
+        "confidence": 0.3668847382068634
+      },
+      {
+        "object": "worker",
+        "grid_cell": 7,
+        "grid_location": "bottom_center",
+        "bbox": {
+          "x": 342,
+          "y": 214,
+          "width": 30,
+          "height": 117
+        },
+        "confidence": 0.33453264832496643
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 362,
+          "y": 199,
+          "width": 11,
+          "height": 50
+        },
+        "confidence": 0.3114335834980011
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_012_high_pos_20260202_130203.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_012_high_pos_20260202_130203.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 86,
+          "y": 199,
+          "width": 26,
+          "height": 53
+        },
+        "confidence": 0.7688998579978943
+      },
+      {
+        "object": "worker",
+        "grid_cell": 7,
+        "grid_location": "bottom_center",
+        "bbox": {
+          "x": 258,
+          "y": 213,
+          "width": 14,
+          "height": 69
+        },
+        "confidence": 0.7571215629577637
+      },
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 582,
+          "y": 215,
+          "width": 33,
+          "height": 68
+        },
+        "confidence": 0.615726113319397
+      },
+      {
+        "object": "kite",
+        "grid_cell": 0,
+        "grid_location": "top_left",
+        "bbox": {
+          "x": 131,
+          "y": 89,
+          "width": 42,
+          "height": 44
+        },
+        "confidence": 0.5104343295097351
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 398,
+          "y": 192,
+          "width": 9,
+          "height": 25
+        },
+        "confidence": 0.4244617223739624
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 270,
+          "y": 190,
+          "width": 10,
+          "height": 33
+        },
+        "confidence": 0.34743598103523254
+      },
+      {
+        "object": "kite",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 131,
+          "y": 88,
+          "width": 42,
+          "height": 96
+        },
+        "confidence": 0.34510767459869385
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 308,
+          "y": 191,
+          "width": 6,
+          "height": 20
+        },
+        "confidence": 0.3062015771865845
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 270,
+          "y": 189,
+          "width": 8,
+          "height": 22
+        },
+        "confidence": 0.30471548438072205
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_012_high_pos_20260202_130203_nogrid.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_012_high_pos_20260202_130203_nogrid.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 86,
+          "y": 199,
+          "width": 26,
+          "height": 53
+        },
+        "confidence": 0.7688998579978943
+      },
+      {
+        "object": "worker",
+        "grid_cell": 7,
+        "grid_location": "bottom_center",
+        "bbox": {
+          "x": 258,
+          "y": 213,
+          "width": 14,
+          "height": 69
+        },
+        "confidence": 0.7571215629577637
+      },
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 582,
+          "y": 215,
+          "width": 33,
+          "height": 68
+        },
+        "confidence": 0.615726113319397
+      },
+      {
+        "object": "kite",
+        "grid_cell": 0,
+        "grid_location": "top_left",
+        "bbox": {
+          "x": 131,
+          "y": 89,
+          "width": 42,
+          "height": 44
+        },
+        "confidence": 0.5104343295097351
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 398,
+          "y": 192,
+          "width": 9,
+          "height": 25
+        },
+        "confidence": 0.4244617223739624
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 270,
+          "y": 190,
+          "width": 10,
+          "height": 33
+        },
+        "confidence": 0.34743598103523254
+      },
+      {
+        "object": "kite",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 131,
+          "y": 88,
+          "width": 42,
+          "height": 96
+        },
+        "confidence": 0.34510767459869385
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 308,
+          "y": 191,
+          "width": 6,
+          "height": 20
+        },
+        "confidence": 0.3062015771865845
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 270,
+          "y": 189,
+          "width": 8,
+          "height": 22
+        },
+        "confidence": 0.30471548438072205
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_013_high_altitude_20260202_130210.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_013_high_altitude_20260202_130210.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 6,
+        "grid_location": "bottom_left",
+        "bbox": {
+          "x": 103,
+          "y": 242,
+          "width": 19,
+          "height": 51
+        },
+        "confidence": 0.7683727145195007
+      },
+      {
+        "object": "worker",
+        "grid_cell": 7,
+        "grid_location": "bottom_center",
+        "bbox": {
+          "x": 265,
+          "y": 264,
+          "width": 14,
+          "height": 74
+        },
+        "confidence": 0.7678290009498596
+      },
+      {
+        "object": "frisbee",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 356,
+          "y": 137,
+          "width": 29,
+          "height": 29
+        },
+        "confidence": 0.5331503748893738
+      },
+      {
+        "object": "kite",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 144,
+          "y": 119,
+          "width": 39,
+          "height": 41
+        },
+        "confidence": 0.4463537335395813
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 405,
+          "y": 212,
+          "width": 9,
+          "height": 23
+        },
+        "confidence": 0.4344417452812195
+      },
+      {
+        "object": "bench",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 570,
+          "y": 228,
+          "width": 69,
+          "height": 83
+        },
+        "confidence": 0.43255212903022766
+      },
+      {
+        "object": "worker",
+        "grid_cell": 7,
+        "grid_location": "bottom_center",
+        "bbox": {
+          "x": 372,
+          "y": 245,
+          "width": 16,
+          "height": 56
+        },
+        "confidence": 0.3730398416519165
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 402,
+          "y": 212,
+          "width": 14,
+          "height": 23
+        },
+        "confidence": 0.3619627356529236
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_013_high_altitude_20260202_130210_nogrid.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_013_high_altitude_20260202_130210_nogrid.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 6,
+        "grid_location": "bottom_left",
+        "bbox": {
+          "x": 103,
+          "y": 242,
+          "width": 19,
+          "height": 51
+        },
+        "confidence": 0.7683727145195007
+      },
+      {
+        "object": "worker",
+        "grid_cell": 7,
+        "grid_location": "bottom_center",
+        "bbox": {
+          "x": 265,
+          "y": 264,
+          "width": 14,
+          "height": 74
+        },
+        "confidence": 0.7678290009498596
+      },
+      {
+        "object": "frisbee",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 356,
+          "y": 137,
+          "width": 29,
+          "height": 29
+        },
+        "confidence": 0.5331503748893738
+      },
+      {
+        "object": "kite",
+        "grid_cell": 3,
+        "grid_location": "middle_left",
+        "bbox": {
+          "x": 144,
+          "y": 119,
+          "width": 39,
+          "height": 41
+        },
+        "confidence": 0.4463537335395813
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 405,
+          "y": 212,
+          "width": 9,
+          "height": 23
+        },
+        "confidence": 0.4344417452812195
+      },
+      {
+        "object": "bench",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 570,
+          "y": 228,
+          "width": 69,
+          "height": 83
+        },
+        "confidence": 0.43255212903022766
+      },
+      {
+        "object": "worker",
+        "grid_cell": 7,
+        "grid_location": "bottom_center",
+        "bbox": {
+          "x": 372,
+          "y": 245,
+          "width": 16,
+          "height": 56
+        },
+        "confidence": 0.3730398416519165
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 402,
+          "y": 212,
+          "width": 14,
+          "height": 23
+        },
+        "confidence": 0.3619627356529236
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_014_high_rot_20260202_130214.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_014_high_rot_20260202_130214.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 6,
+        "grid_location": "bottom_left",
+        "bbox": {
+          "x": 196,
+          "y": 237,
+          "width": 14,
+          "height": 43
+        },
+        "confidence": 0.6324304938316345
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_014_high_rot_20260202_130214_nogrid.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_014_high_rot_20260202_130214_nogrid.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 6,
+        "grid_location": "bottom_left",
+        "bbox": {
+          "x": 196,
+          "y": 237,
+          "width": 14,
+          "height": 43
+        },
+        "confidence": 0.6324304938316345
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_015_high_forward_20260202_130222.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_015_high_forward_20260202_130222.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 6,
+        "grid_location": "bottom_left",
+        "bbox": {
+          "x": 73,
+          "y": 272,
+          "width": 29,
+          "height": 76
+        },
+        "confidence": 0.7488791942596436
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_015_high_forward_20260202_130222_nogrid.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_015_high_forward_20260202_130222_nogrid.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 6,
+        "grid_location": "bottom_left",
+        "bbox": {
+          "x": 73,
+          "y": 272,
+          "width": 29,
+          "height": 76
+        },
+        "confidence": 0.7488791942596436
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_016_return_high_20260202_130230.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_016_return_high_20260202_130230.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 503,
+          "y": 295,
+          "width": 23,
+          "height": 64
+        },
+        "confidence": 0.8746476173400879
+      },
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 593,
+          "y": 252,
+          "width": 18,
+          "height": 53
+        },
+        "confidence": 0.6874536871910095
+      },
+      {
+        "object": "worker",
+        "grid_cell": 7,
+        "grid_location": "bottom_center",
+        "bbox": {
+          "x": 392,
+          "y": 226,
+          "width": 11,
+          "height": 29
+        },
+        "confidence": 0.4839934706687927
+      },
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 603,
+          "y": 232,
+          "width": 15,
+          "height": 39
+        },
+        "confidence": 0.47411710023880005
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_016_return_high_20260202_130230_nogrid.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_016_return_high_20260202_130230_nogrid.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 503,
+          "y": 295,
+          "width": 23,
+          "height": 64
+        },
+        "confidence": 0.8746476173400879
+      },
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 593,
+          "y": 252,
+          "width": 18,
+          "height": 53
+        },
+        "confidence": 0.6874536871910095
+      },
+      {
+        "object": "worker",
+        "grid_cell": 7,
+        "grid_location": "bottom_center",
+        "bbox": {
+          "x": 392,
+          "y": 226,
+          "width": 11,
+          "height": 29
+        },
+        "confidence": 0.4839934706687927
+      },
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 603,
+          "y": 232,
+          "width": 15,
+          "height": 39
+        },
+        "confidence": 0.47411710023880005
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_017_return_mid_20260202_130238.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_017_return_mid_20260202_130238.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 459,
+          "y": 261,
+          "width": 19,
+          "height": 61
+        },
+        "confidence": 0.8060315251350403
+      },
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 587,
+          "y": 258,
+          "width": 19,
+          "height": 58
+        },
+        "confidence": 0.7546361088752747
+      },
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 558,
+          "y": 238,
+          "width": 15,
+          "height": 44
+        },
+        "confidence": 0.5932254791259766
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 391,
+          "y": 216,
+          "width": 12,
+          "height": 27
+        },
+        "confidence": 0.5061271786689758
+      },
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 489,
+          "y": 339,
+          "width": 11,
+          "height": 20
+        },
+        "confidence": 0.47541454434394836
+      },
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 456,
+          "y": 331,
+          "width": 13,
+          "height": 28
+        },
+        "confidence": 0.46546870470046997
+      },
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 584,
+          "y": 224,
+          "width": 12,
+          "height": 38
+        },
+        "confidence": 0.4136280119419098
+      },
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 520,
+          "y": 345,
+          "width": 11,
+          "height": 14
+        },
+        "confidence": 0.3653371036052704
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_017_return_mid_20260202_130238_nogrid.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_017_return_mid_20260202_130238_nogrid.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 459,
+          "y": 261,
+          "width": 19,
+          "height": 61
+        },
+        "confidence": 0.8060315251350403
+      },
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 587,
+          "y": 258,
+          "width": 19,
+          "height": 58
+        },
+        "confidence": 0.7546361088752747
+      },
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 558,
+          "y": 238,
+          "width": 15,
+          "height": 44
+        },
+        "confidence": 0.5932254791259766
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 391,
+          "y": 216,
+          "width": 12,
+          "height": 27
+        },
+        "confidence": 0.5061271786689758
+      },
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 489,
+          "y": 339,
+          "width": 11,
+          "height": 20
+        },
+        "confidence": 0.47541454434394836
+      },
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 456,
+          "y": 331,
+          "width": 13,
+          "height": 28
+        },
+        "confidence": 0.46546870470046997
+      },
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 584,
+          "y": 224,
+          "width": 12,
+          "height": 38
+        },
+        "confidence": 0.4136280119419098
+      },
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 520,
+          "y": 345,
+          "width": 11,
+          "height": 14
+        },
+        "confidence": 0.3653371036052704
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_018_return_low_20260202_130244.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_018_return_low_20260202_130244.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 480,
+          "y": 223,
+          "width": 20,
+          "height": 62
+        },
+        "confidence": 0.6769201159477234
+      },
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 593,
+          "y": 211,
+          "width": 16,
+          "height": 48
+        },
+        "confidence": 0.6511973738670349
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 407,
+          "y": 199,
+          "width": 11,
+          "height": 25
+        },
+        "confidence": 0.5102794766426086
+      },
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 627,
+          "y": 225,
+          "width": 12,
+          "height": 68
+        },
+        "confidence": 0.4959891438484192
+      },
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 623,
+          "y": 203,
+          "width": 16,
+          "height": 36
+        },
+        "confidence": 0.30174705386161804
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_018_return_low_20260202_130244_nogrid.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_018_return_low_20260202_130244_nogrid.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 480,
+          "y": 223,
+          "width": 20,
+          "height": 62
+        },
+        "confidence": 0.6769201159477234
+      },
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 593,
+          "y": 211,
+          "width": 16,
+          "height": 48
+        },
+        "confidence": 0.6511973738670349
+      },
+      {
+        "object": "worker",
+        "grid_cell": 4,
+        "grid_location": "center",
+        "bbox": {
+          "x": 407,
+          "y": 199,
+          "width": 11,
+          "height": 25
+        },
+        "confidence": 0.5102794766426086
+      },
+      {
+        "object": "worker",
+        "grid_cell": 8,
+        "grid_location": "bottom_right",
+        "bbox": {
+          "x": 627,
+          "y": 225,
+          "width": 12,
+          "height": 68
+        },
+        "confidence": 0.4959891438484192
+      },
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 623,
+          "y": 203,
+          "width": 16,
+          "height": 36
+        },
+        "confidence": 0.30174705386161804
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_019_final_position_20260202_130250.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_019_final_position_20260202_130250.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 517,
+          "y": 177,
+          "width": 25,
+          "height": 71
+        },
+        "confidence": 0.698845386505127
+      },
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 431,
+          "y": 177,
+          "width": 14,
+          "height": 29
+        },
+        "confidence": 0.6443188190460205
+      },
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 440,
+          "y": 178,
+          "width": 8,
+          "height": 27
+        },
+        "confidence": 0.5278961658477783
+      },
+      {
+        "object": "frisbee",
+        "grid_cell": 2,
+        "grid_location": "top_right",
+        "bbox": {
+          "x": 461,
+          "y": 95,
+          "width": 37,
+          "height": 33
+        },
+        "confidence": 0.3576125502586365
+      },
+      {
+        "object": "kite",
+        "grid_cell": 2,
+        "grid_location": "top_right",
+        "bbox": {
+          "x": 462,
+          "y": 95,
+          "width": 36,
+          "height": 34
+        },
+        "confidence": 0.32006174325942993
+      }
+    ]
+  },
+  {
+    "image_file": "drone_img_019_final_position_20260202_130250_nogrid.png",
+    "image_path": "/home/psp/ros_ws/src/vpdrones/dataset/images/drone_img_019_final_position_20260202_130250_nogrid.png",
+    "objects": [
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 517,
+          "y": 177,
+          "width": 25,
+          "height": 71
+        },
+        "confidence": 0.698845386505127
+      },
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 431,
+          "y": 177,
+          "width": 14,
+          "height": 29
+        },
+        "confidence": 0.6443188190460205
+      },
+      {
+        "object": "worker",
+        "grid_cell": 5,
+        "grid_location": "middle_right",
+        "bbox": {
+          "x": 440,
+          "y": 178,
+          "width": 8,
+          "height": 27
+        },
+        "confidence": 0.5278961658477783
+      },
+      {
+        "object": "frisbee",
+        "grid_cell": 2,
+        "grid_location": "top_right",
+        "bbox": {
+          "x": 461,
+          "y": 95,
+          "width": 37,
+          "height": 33
+        },
+        "confidence": 0.3576125502586365
+      },
+      {
+        "object": "kite",
+        "grid_cell": 2,
+        "grid_location": "top_right",
+        "bbox": {
+          "x": 462,
+          "y": 95,
+          "width": 36,
+          "height": 34
+        },
+        "confidence": 0.32006174325942993
+      }
+    ]
+  }
+]
