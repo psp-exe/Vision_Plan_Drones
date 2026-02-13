@@ -2,19 +2,18 @@ import rclpy
 from rclpy.node import Node
 import json
 import time
+import math
 import threading
-import cv2
 import numpy as np
-from cv_bridge import CvBridge
 from geometry_msgs.msg import Twist
 from std_msgs.msg import Empty
-from sensor_msgs.msg import Image
+from geometry_msgs.msg import Pose
 
 # --- CONFIGURATION ---
-JSON_FILE_PATH = "/home/psp/ros_ws/src/vpdrones/src/sjtu_drone/vpdrones/flight_plan.json"
-TARGET_IMG_PATH = "/home/psp/ros_ws/src/vpdrones/src/sjtu_drone/imgs/target.png"
-CAMERA_TOPIC = "/drone/front/image_raw" # Check 'ros2 topic list' if this fails
+PLAN_JSON_PATH = "/home/psp/ros_ws/src/PDDL/generated_plans/plan_latest.json"
 VEL_TOPIC = "/drone/cmd_vel"
+POSE_TOPIC = "/drone/gt_pose"
+
 
 class VPDroneParser(Node):
     def __init__(self):
@@ -24,241 +23,255 @@ class VPDroneParser(Node):
         self.velocity_publisher = self.create_publisher(Twist, VEL_TOPIC, 10)
         self.takeoff_publisher = self.create_publisher(Empty, '/drone/takeoff', 10)
         self.land_publisher = self.create_publisher(Empty, '/drone/land', 10)
-        
-        # -- SUBSCRIBERS --
-        # We subscribe to the camera but only process when needed
-        self.bridge = CvBridge()
-        self.image_subscriber = self.create_subscription(
-            Image, CAMERA_TOPIC, self.image_callback, 10)
 
-        # -- COMPUTER VISION SETUP --
-        self.following_active = False # Flag to turn on/off vision control
-        self.target_reached = False
-        self.load_target_image()
+        # -- SUBSCRIBERS --
+        self.pose_subscriber = self.create_subscription(
+            Pose, POSE_TOPIC, self.pose_callback, 10)
+
+        # -- DRONE STATE --
+        self.current_x = 0.0
+        self.current_y = 0.0
+        self.current_z = 0.0
+        self.current_yaw = 0.0
+        self.pose_received = False
+
+        # -- FLIGHT PARAMETERS --
+        self.fly_speed = 0.75          # m/s cruise speed
+        self.position_tolerance = 0.3 # meters — close enough to target
+        self.hover_duration = 5.0     # seconds to hover during scan
+        self.takeoff_wait = 5.0       # seconds to wait after takeoff
+        self.land_wait = 5.0          # seconds to wait after land
 
         # -- INPUT THREAD --
-        self.get_logger().info("Vision Drone Ready. Press 'Enter' to start mission.")
+        self.get_logger().info("PDDL Plan Executor Ready.")
+        self.get_logger().info(f"Plan file: {PLAN_JSON_PATH}")
+        self.get_logger().info("Press 'Enter' to execute the plan.")
         self.input_thread = threading.Thread(target=self.wait_for_input)
         self.input_thread.daemon = True
         self.input_thread.start()
 
-    def load_target_image(self):
-        """Loads the reference image for feature matching."""
-        self.ref_img = cv2.imread(TARGET_IMG_PATH, 0) # Load as grayscale
-        if self.ref_img is None:
-            self.get_logger().error(f"Could not load {TARGET_IMG_PATH}. Check path!")
-            return
-        
-        # Initialize ORB detector
-        self.orb = cv2.ORB_create(nfeatures=500)
-        self.kp_ref, self.des_ref = self.orb.detectAndCompute(self.ref_img, None)
-        self.get_logger().info(f"Target loaded. Keypoints: {len(self.kp_ref)}")
+    # =====================================================================
+    # POSE CALLBACK
+    # =====================================================================
+    def pose_callback(self, msg):
+        """Update current drone position and yaw from ground truth pose."""
+        self.current_x = msg.position.x
+        self.current_y = msg.position.y
+        self.current_z = msg.position.z
 
+        # Extract yaw from quaternion
+        q = msg.orientation
+        siny_cosp = 2.0 * (q.w * q.z + q.x * q.y)
+        cosy_cosp = 1.0 - 2.0 * (q.y * q.y + q.z * q.z)
+        self.current_yaw = math.atan2(siny_cosp, cosy_cosp)
+
+        self.pose_received = True
+
+    # =====================================================================
+    # PLAN LOADING
+    # =====================================================================
+    def load_plan(self):
+        """Load the PDDL plan from JSON file."""
+        try:
+            with open(PLAN_JSON_PATH, 'r') as f:
+                plan = json.load(f)
+
+            if not plan.get('plan_found', False):
+                self.get_logger().error("No valid plan found in JSON.")
+                return None
+
+            self.get_logger().info(f"Plan loaded: {plan['num_actions']} actions, "
+                                  f"makespan {plan['makespan']}s")
+            return plan
+
+        except Exception as e:
+            self.get_logger().error(f"Error loading plan: {e}")
+            return None
+
+    # =====================================================================
+    # INPUT / MISSION START
+    # =====================================================================
     def wait_for_input(self):
         while rclpy.ok():
             try:
                 input()
-                self.get_logger().info("Starting Mission...")
-                self.execute_mission()
+                self.execute_plan()
             except EOFError:
                 break
 
-    def execute_mission(self):
-        try:
-            with open("/home/psp/ros_ws/src/vpdrones/src/sjtu_drone/vpdrones/flight_plan.json", 'r') as f:
-                commands = json.load(f)
-            if isinstance(commands, dict): commands = [commands]
-
-            for command in commands:
-                self.process_command(command)
-                time.sleep(1.0) # Stability pause
-            
-            self.get_logger().info("Mission Complete.") 
-
-        except Exception as e:
-            self.get_logger().error(f"Error reading JSON: {e}")
-
-    def process_command(self, command):
-        action = command.get('action', '').lower()
-        self.get_logger().info(f">>> Executing: {action}")
-
-        if action == 'takeoff':
-            self.takeoff_publisher.publish(Empty())
-            time.sleep(4)
-            
-        elif action == 'land':
-            self.land_publisher.publish(Empty())
-            time.sleep(4)
-
-        elif action == 'fly':
-            self.move_drone(command.get('direction', 'forward'), 
-                            float(command.get('distance', 1.0)), 
-                            float(command.get('speed', 0.5)))
-
-        elif action == 'rotate':
-            self.rotate_drone(float(command.get('angle', 90.0)))
-
-        elif action == 'follow_target':
-            # Enable Vision Loop and BLOCK here until it finishes
-            if self.ref_img is None:
-                self.get_logger().warn("Skipping follow_target: No image loaded.")
-                return
-
-            self.target_reached = False
-            self.following_active = True
-            
-            # Wait loop: The image_callback is now driving the drone.
-            # We wait here until the callback sets target_reached to True.
-            start_wait = time.time()
-            while not self.target_reached and rclpy.ok():
-                time.sleep(0.1)
-                # Timeout safety (e.g. 30 seconds max search)
-                if time.time() - start_wait > 30.0:
-                    self.get_logger().warn("Target follow timed out.")
-                    break
-            
-            self.following_active = False
-            self.stop_drone()
-
-    def image_callback(self, msg):
-        """
-        Main Vision Control Loop with RANSAC Outlier Rejection
-        """
-        if not self.following_active:
+    def execute_plan(self):
+        """Load and execute the PDDL plan sequentially."""
+        plan = self.load_plan()
+        if plan is None:
             return
 
-        try:
-            # 1. Image Conversion
-            frame = self.bridge.imgmsg_to_cv2(msg, "bgr8")
-            gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-            h, w, _ = frame.shape
+        actions = plan.get('actions', [])
 
-            # 2. Detect Features
-            kp_frame, des_frame = self.orb.detectAndCompute(gray_frame, None)
-
-            if des_frame is None:
+        # Wait for initial pose before executing any actions
+        if not self.pose_received:
+            self.get_logger().info("Waiting for initial pose from /drone/gt_pose...")
+            timeout = time.time() + 10.0
+            while not self.pose_received and time.time() < timeout:
+                time.sleep(0.1)
+            if not self.pose_received:
+                self.get_logger().error("No pose data received, aborting plan.")
                 return
 
-            # 3. Match Features
-            bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
-            matches = bf.match(self.des_ref, des_frame)
-            matches = sorted(matches, key=lambda x: x.distance)
-            
-            # Keep top 30 matches to have enough data for RANSAC
-            good_matches = matches[:30]
+        self.get_logger().info(
+            f"Initial pose: ({self.current_x:.2f}, {self.current_y:.2f}, {self.current_z:.2f})")
 
-            if len(good_matches) > 10:
-                # Prepare points for RANSAC
-                src_pts = np.float32([self.kp_ref[m.queryIdx].pt for m in good_matches]).reshape(-1, 1, 2)
-                dst_pts = np.float32([kp_frame[m.trainIdx].pt for m in good_matches]).reshape(-1, 1, 2)
+        self.get_logger().info("=" * 50)
+        self.get_logger().info("EXECUTING PDDL PLAN")
+        self.get_logger().info("=" * 50)
 
-                # 4. RANSAC (The Fix!) - Find the Perspective Transform
-                # This identifies which points actually form a valid object shape
-                M, mask = cv2.findHomography(src_pts, dst_pts, cv2.RANSAC, 5.0)
-                
-                if M is not None:
-                    matchesMask = mask.ravel().tolist()
-                    
-                    # Filter only the valid points (inliers)
-                    valid_dst_pts = dst_pts[mask.ravel() == 1]
-                    
-                    # If we have enough valid points after filtering
-                    if len(valid_dst_pts) > 5:
-                        # Calculate Bounding Box of ONLY valid points
-                        x_min = np.min(valid_dst_pts[:,0,0])
-                        x_max = np.max(valid_dst_pts[:,0,0])
-                        y_min = np.min(valid_dst_pts[:,0,1])
-                        y_max = np.max(valid_dst_pts[:,0,1])
+        for i, action in enumerate(actions, 1):
+            name = action['name']
+            params = action.get('parameters', [])
+            coords = action.get('coordinates', None)
 
-                        # Calculate Center and Area
-                        avg_x = (x_min + x_max) / 2
-                        obj_width = x_max - x_min
-                        obj_height = y_max - y_min
-                        obj_area = obj_width * obj_height
-                        
-                        # Draw the bounding box for debugging (Blue Box)
-                        cv2.rectangle(frame, (int(x_min), int(y_min)), (int(x_max), int(y_max)), (255, 0, 0), 3)
+            self.get_logger().info(f"\n[{i}/{len(actions)}] Action: {name}")
+            self.get_logger().info(f"  Parameters: {params}")
+            if coords:
+                self.get_logger().info(
+                    f"  Target: ({coords['x']}, {coords['y']}, {coords['z']})")
 
-                        # Calculate Error and Ratio
-                        err_x = (w / 2) - avg_x
-                        screen_area = w * h
-                        
-                        # Call the controller
-                        self.visual_servo_control(err_x, obj_area, screen_area)
-                    else:
-                        self.get_logger().info("RANSAC rejected matches (bad geometry).")
-                        self.stop_drone()
+            # Dispatch to the right handler
+            if name == 'take_off':
+                self.action_takeoff()
+            elif name == 'fly_to_target':
+                if coords:
+                    self.action_fly_to_target(
+                        coords['x'], coords['y'], coords['z'],
+                        target_name=params[1] if len(params) > 1 else "unknown")
                 else:
-                    self.get_logger().info("Could not find Homography.")
-                    self.stop_drone()
+                    self.get_logger().warn("fly_to_target missing coordinates, skipping.")
+            elif name == 'scan_target':
+                target_name = params[1] if len(params) > 1 else "unknown"
+                self.action_scan_target(target_name)
+            elif name == 'land':
+                self.action_land()
             else:
+                self.get_logger().warn(f"Unknown action: {name}, skipping.")
+
+            time.sleep(1.0)  # brief pause between actions
+
+        self.get_logger().info("=" * 50)
+        self.get_logger().info("PLAN EXECUTION COMPLETE")
+        self.get_logger().info("=" * 50)
+
+    # =====================================================================
+    # ACTION: take_off
+    # =====================================================================
+    def action_takeoff(self):
+        """Publish takeoff command and wait for the drone to stabilize."""
+        self.get_logger().info("  Taking off...")
+        self.takeoff_publisher.publish(Empty())
+        time.sleep(self.takeoff_wait)
+        self.get_logger().info(f"  Airborne at z={self.current_z:.2f}m")
+
+    # =====================================================================
+    # ACTION: fly_to_target (closed-loop position control)
+    # =====================================================================
+    def action_fly_to_target(self, target_x, target_y, target_z,
+                             target_name="target"):
+        """
+        Fly to a 3D coordinate using proportional velocity control.
+
+        Continuously publishes velocity commands toward the target until
+        the drone is within position_tolerance of the target coordinates.
+        """
+        target_x = target_x*10
+        target_y = target_y*10
+        target_z = target_z*10
+        # Clamp target Z to minimum safe altitude
+        target_z = max(target_z, 0.75)
+
+        self.get_logger().info(
+            f"  Flying to {target_name} at ({target_x}, {target_y}, {target_z})")
+
+        # Proportional gain
+        Kp = 0.5
+        max_speed = self.fly_speed
+        rate_hz = 10  # control loop frequency
+        timeout = 60.0  # safety timeout
+
+        start_time = time.time()
+
+        while rclpy.ok():
+            # Compute errors
+            ex = target_x - self.current_x
+            ey = target_y - self.current_y
+            ez = target_z - self.current_z
+            distance = math.sqrt(ex**2 + ey**2 + ez**2)
+
+            # Check if arrived
+            if distance < self.position_tolerance:
                 self.stop_drone()
+                self.get_logger().info(
+                    f"  Arrived at {target_name} "
+                    f"(error: {distance:.2f}m)")
+                return
 
-            # Show Debug Window
-            cv2.imshow("Drone Vision", frame)
-            cv2.waitKey(1)
+            # Check timeout
+            if time.time() - start_time > timeout:
+                self.stop_drone()
+                self.get_logger().warn(
+                    f"  Fly timeout after {timeout}s "
+                    f"(distance remaining: {distance:.2f}m)")
+                return
 
-        except Exception as e:
-            self.get_logger().error(f"CV Error: {e}")
+            # Proportional control with speed clamping
+            vx = max(-max_speed, min(max_speed, Kp * ex))
+            vy = max(-max_speed, min(max_speed, Kp * ey))
+            vz = max(-max_speed, min(max_speed, Kp * ez))
 
-    def visual_servo_control(self, err_x, obj_area, screen_area):
-        msg = Twist()
-        
-        # Calculate current ratio
-        current_ratio = obj_area / screen_area
-        target_ratio = 0.15  # Stop when object is 15% of screen
-        
-        # LOGGING (Crucial for debugging)
-        # Check your terminal for these numbers!
-        self.get_logger().info(f"Ratio: {current_ratio:.4f} / {target_ratio} | Error X: {err_x:.1f}")
+            # Yaw alignment: face the target (only when far enough)
+            xy_dist = math.sqrt(ex**2 + ey**2)
+            yaw_rate = 0.0
+            if xy_dist > 1.0:
+                desired_yaw = math.atan2(ey, ex)
+                yaw_error = desired_yaw - self.current_yaw
+                # Normalize to [-pi, pi]
+                yaw_error = math.atan2(math.sin(yaw_error), math.cos(yaw_error))
+                yaw_rate = max(-0.3, min(0.3, 0.3 * yaw_error))
 
-        if current_ratio < target_ratio:
-            # P-Controller for Rotation
-            Kp_rot = 0.002
-            msg.angular.z = Kp_rot * err_x
-            
-            # Move Forward
-            msg.linear.x = 0.2 
+            msg = Twist()
+            msg.linear.x = vx
+            msg.linear.y = vy
+            msg.linear.z = vz
+            msg.angular.z = yaw_rate
             self.velocity_publisher.publish(msg)
-            self.target_reached = False
-        else:
-            self.get_logger().info("Target Reached (Size Condition Met)!")
-            self.target_reached = True
-            self.stop_drone()
 
-    def move_drone(self, direction, distance, speed):
-        # ... (Same as your previous successful code) ...
-        msg = Twist()
-        if direction == 'forward': msg.linear.x = speed
-        elif direction == 'backward': msg.linear.x = -speed
-        elif direction == 'left': msg.linear.y = speed
-        elif direction == 'right': msg.linear.y = -speed
-        elif direction == 'up': msg.linear.z = speed
-        elif direction == 'down': msg.linear.z = -speed
-        
-        duration = distance / speed
-        start = time.time()
-        while time.time() - start < duration:
-            self.velocity_publisher.publish(msg)
-            time.sleep(0.1)
+            time.sleep(1.0 / rate_hz)
+
+    # =====================================================================
+    # ACTION: scan_target (hover for 5 seconds)
+    # =====================================================================
+    def action_scan_target(self, target_name="target"):
+        """Hover in place for hover_duration seconds to scan the target."""
+        self.get_logger().info(
+            f"  Scanning {target_name} — hovering for {self.hover_duration}s...")
         self.stop_drone()
+        time.sleep(self.hover_duration)
+        self.get_logger().info(f"  Scan of {target_name} complete.")
 
-    def rotate_drone(self, angle):
-        # ... (Same as your previous successful code) ...
-        msg = Twist()
-        ang_speed = 0.5
-        target_rad = (abs(angle) * 3.14159) / 180.0
-        msg.angular.z = ang_speed if angle > 0 else -ang_speed
-        
-        duration = target_rad / ang_speed
-        start = time.time()
-        while time.time() - start < duration:
-            self.velocity_publisher.publish(msg)
-            time.sleep(0.1)
-        self.stop_drone()
+    # =====================================================================
+    # ACTION: land
+    # =====================================================================
+    def action_land(self):
+        """Publish land command and wait for the drone to touch down."""
+        self.get_logger().info("  Landing...")
+        self.land_publisher.publish(Empty())
+        time.sleep(self.land_wait)
+        self.get_logger().info(f"  Landed at z={self.current_z:.2f}m")
 
+    # =====================================================================
+    # UTILITY
+    # =====================================================================
     def stop_drone(self):
+        """Stop all drone movement."""
         self.velocity_publisher.publish(Twist())
+
 
 def main(args=None):
     rclpy.init(args=args)
@@ -266,6 +279,7 @@ def main(args=None):
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
+
 
 if __name__ == '__main__':
     main()

@@ -1,13 +1,21 @@
-[
-    {
-        "action": "takeoff"
-    },
-    {
-        "action": "fly",
-        "distance": 10,
-        "speed": 1
-    },
-    {
-        "action": "land"
-    }
-]
+{
+    "objects": [
+        {
+            "id": "delivery_zone_001",
+            "type": "target",
+            "bbox": [
+                473,
+                28,
+                644,
+                195
+            ],
+            "estimated_coords": [
+                0.7,
+                -1.28,
+                1.65
+            ],
+            "estimated_depth": 5.0
+        }
+    ],
+    "goal": "(scanned delivery_zone_001)"
+}

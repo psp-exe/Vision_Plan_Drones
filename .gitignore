@@ -1,0 +1,27 @@
+# ROS 2 build artifacts
+build/
+install/
+log/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Generated files
+*.bag
+*.db3
+
+# PDDL generated files (optional - uncomment if you don't want to track these)
+# src/PDDL/generated_plans/
+# src/PDDL/generated_problems/

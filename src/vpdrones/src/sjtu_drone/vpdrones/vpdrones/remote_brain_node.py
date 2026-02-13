@@ -7,6 +7,8 @@ from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
 from scp import SCPClient
 import os
+import time
+import subprocess
 
 # --- SSH CONFIGURATION (EDIT THIS) ---
 REMOTE_HOST = '100.88.111.51'     # IP of your powerful server
@@ -76,9 +78,19 @@ class RemoteBrainNode(Node):
                 
                 if success:
                     self.get_logger().info("SUCCESS: JSON file copied back to " + LOCAL_JSON_PATH)
-                    # Verify content (Optional)
                     with open(LOCAL_JSON_PATH, 'r') as f:
                         print(f"Content received: {f.read()}")
+                    
+                    # Run perception_node.py after all operations complete
+                    self.get_logger().info("Running perception_node.py...")
+                    try:
+                        subprocess.Popen(
+                            ['python3', '/home/psp/ros_ws/src/PDDL/perception_node.py'],
+                            cwd='/home/psp/ros_ws'
+                        )
+                        self.get_logger().info("perception_node.py started.")
+                    except Exception as e:
+                        self.get_logger().error(f"Failed to start perception_node.py: {e}")
                 else:
                     self.get_logger().error("FAILED: Could not complete transfer.")
             else:
@@ -95,7 +107,11 @@ class RemoteBrainNode(Node):
                 scp.put(LOCAL_TXT_PATH, remote_path=REMOTE_DIR + "query.txt")
                 scp.put(LOCAL_IMG_PATH, remote_path=REMOTE_DIR + "input.jpg")
                 
-                # B. Download the Resulting JSON
+                # B. Wait 5 seconds before downloading JSON
+                self.get_logger().info("Waiting 5 seconds for server to process...")
+                time.sleep(5)
+
+                # C. Download the Resulting JSON
                 self.get_logger().info(f"Downloading {REMOTE_JSON_NAME}...")
                 remote_json_full_path = os.path.join(REMOTE_DIR, REMOTE_JSON_NAME)
                 scp.get(remote_json_full_path, local_path=LOCAL_JSON_PATH)

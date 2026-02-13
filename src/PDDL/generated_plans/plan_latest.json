@@ -1,0 +1,53 @@
+{
+  "problem": "problem_latest",
+  "plan_found": true,
+  "actions": [
+    {
+      "name": "take_off",
+      "parameters": [
+        "drone1"
+      ],
+      "start_time": 0.0,
+      "duration": 5.0,
+      "end_time": 5.0
+    },
+    {
+      "name": "fly_to_target",
+      "parameters": [
+        "drone1",
+        "delivery_zone_001"
+      ],
+      "start_time": 5.001,
+      "duration": 5.0,
+      "end_time": 10.001,
+      "coordinates": {
+        "x": 0.7,
+        "y": -1.28,
+        "z": 1.65
+      }
+    },
+    {
+      "name": "scan_target",
+      "parameters": [
+        "drone1",
+        "delivery_zone_001"
+      ],
+      "start_time": 10.002,
+      "duration": 4.0,
+      "end_time": 14.002
+    },
+    {
+      "name": "land",
+      "parameters": [
+        "drone1"
+      ],
+      "start_time": 10.003,
+      "duration": 5.0,
+      "end_time": 15.003
+    }
+  ],
+  "makespan": 15.003,
+  "metric": 15.003,
+  "num_actions": 4,
+  "generated_at": "2026-02-12T14:24:56.563015"
+}
