@@ -2,35 +2,35 @@
    DESIGN TOKENS
    ============================================================ */
 :root {
-  --bg-base:        #070b14;
-  --bg-surface:     #0d1526;
-  --bg-card:        #111d35;
-  --bg-card-hover:  #162040;
-  --border:         rgba(99, 149, 255, 0.12);
-  --border-strong:  rgba(99, 149, 255, 0.25);
+  --bg-base:        #fdfaf3; /* Light Cream */
+  --bg-surface:     #fffcf5;
+  --bg-card:        #ffffff;
+  --bg-card-hover:  #fbf8f0;
+  --border:         rgba(42, 39, 35, 0.08);
+  --border-strong:  rgba(42, 39, 35, 0.15);
 
-  --blue-400:  #6395ff;
-  --blue-500:  #4b7aff;
-  --blue-600:  #3060e8;
-  --purple-400:#a78bfa;
-  --purple-500:#8b5cf6;
-  --teal-400:  #34d3be;
-  --orange-400:#fb923c;
-  --green-400: #4ade80;
-  --yellow-400:#facc15;
-  --red-400:   #f87171;
+  --blue-400:  #2563eb; /* Slightly darker for contrast on light */
+  --blue-500:  #1d4ed8;
+  --blue-600:  #1e40af;
+  --purple-400:#7c3aed;
+  --purple-500:#6d28d9;
+  --teal-400:  #0d9488;
+  --orange-400:#ea580c;
+  --green-400: #16a34a;
+  --yellow-400:#ca8a04;
+  --red-400:   #dc2626;
 
-  --text-primary:   #e8eeff;
-  --text-secondary: #94a3c8;
-  --text-muted:     #546080;
+  --text-primary:   #2a2723;
+  --text-secondary: #4a453e;
+  --text-muted:     #7a746d;
 
   --radius-sm:  6px;
   --radius-md:  12px;
   --radius-lg:  20px;
   --radius-xl:  28px;
 
-  --shadow-card: 0 4px 24px rgba(0,0,0,0.5);
-  --shadow-glow: 0 0 40px rgba(75,122,255,0.15);
+  --shadow-card: 0 4px 20px rgba(42,39,35,0.08);
+  --shadow-glow: 0 0 40px rgba(37,99,235,0.08);
 
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
@@ -87,13 +87,13 @@ pre code { background: none; padding: 0; border-radius: 0; color: inherit; font-
   height: 64px;
   display: flex;
   align-items: center;
-  background: rgba(7,11,20,0.7);
+  background: rgba(253, 250, 243, 0.8);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   transition: background var(--transition), border-color var(--transition);
 }
 #navbar.scrolled {
-  background: rgba(7,11,20,0.95);
+  background: rgba(253, 250, 243, 0.95);
   border-color: var(--border-strong);
 }
 .nav-inner {
@@ -177,15 +177,15 @@ pre code { background: none; padding: 0; border-radius: 0; color: inherit; font-
   height: 100%;
   object-fit: cover;
   object-position: center;
-  opacity: 0.35;
+  opacity: 0.50;
 }
 .hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(7,11,20,0.3) 0%,
-    rgba(7,11,20,0.6) 60%,
+    rgba(253, 250, 243, 0.1) 0%,
+    rgba(253, 250, 243, 0.4) 60%,
     var(--bg-base) 100%
   );
 }
@@ -555,8 +555,8 @@ pre code { background: none; padding: 0; border-radius: 0; color: inherit; font-
   line-height: 1.65;
 }
 .problem-card:last-child {
-  background: linear-gradient(135deg, rgba(75,122,255,0.1), rgba(139,92,246,0.08));
-  border-color: rgba(99,149,255,0.3);
+  background: linear-gradient(135deg, rgba(37,99,235,0.08), rgba(124,58,237,0.06));
+  border-color: rgba(37,99,235,0.25);
 }
 .solution-highlight {
   color: var(--text-primary) !important;
