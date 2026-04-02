@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neuro-Symbolic Planning for Autonomous Drones | Pranav Prabhu</title>
+  <meta name="description"
+    content="Master's thesis: Integration of Structured Planning with Vision Language Models for Physical Agents — a hybrid neuro-symbolic architecture for autonomous UAV logistics." />
+  <meta property="og:title" content="Neuro-Symbolic Planning for Autonomous Drones" />
+  <meta property="og:description"
+    content="Integration of Structured Planning with Vision Language Models for Physical Agents" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ====== NAV ====== -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <span class="nav-logo">Pranav S. Prabhu</span>
+      <ul class="nav-links">
+        <li><a href="#abstract">Abstract</a></li>
+        <li><a href="#architecture">Architecture</a></li>
+        <li><a href="#vlm">Models</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#future">Future</a></li>
+        <li><a href="https://github.com/psp-exe" target="_blank" class="nav-btn">GitHub</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ====== HERO ====== -->
+  <header class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="hero_banner.png" alt="Drone with holographic PDDL planning overlays in a warehouse" class="hero-img" />
+      <div class="hero-overlay"></div>
+      <!-- Animated particles -->
+      <div class="particles-container" id="particles"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">Master's Thesis · TU Dortmund · 2026</div>
+      <h1 class="hero-title">
+        Integration of Structured Planning<br />
+        with <span class="gradient-text">Vision Language Models</span><br />
+        for Physical Agents
+      </h1>
+      <p class="hero-subtitle">
+        A hybrid neuro-symbolic architecture that gives autonomous drones<br />
+        safety guarantees and natural language understanding.
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="meta-label">Author</span>
+          <span class="meta-value">Pranav Sathish Prabhu</span>
+        </div>
+        <div class="hero-meta-divider"></div>
+        <div class="hero-meta-item">
+          <span class="meta-label">Supervisor</span>
+          <span class="meta-value">Prof. Dr.-Ing. Alice Kirchheim</span>
+        </div>
+        <div class="hero-meta-divider"></div>
+        <div class="hero-meta-item">
+          <span class="meta-label">Institution</span>
+          <span class="meta-value">TU Dortmund · FLW</span>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="Masterarbeit_Prabhu.pdf" class="btn btn-primary" id="download-pdf">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          Download PDF
+        </a>
+        <a href="#abstract" class="btn btn-ghost">
+          Read Summary
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll to explore</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </header>
+
+  <!-- ====== KEY STATS ====== -->
+  <section class="stats-band">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card" id="stat-1">
+          <div class="stat-number" data-target="99.29">0</div>
+          <div class="stat-unit">%</div>
+          <div class="stat-label">Semantic Correctness<br /><small>(Qwen2.5-VL-7B)</small></div>
+        </div>
+        <div class="stat-card" id="stat-2">
+          <div class="stat-number" data-target="100">0</div>
+          <div class="stat-unit">%</div>
+          <div class="stat-label">Safety Constraint<br />Adherence</div>
+        </div>
+        <div class="stat-card" id="stat-3">
+          <div class="stat-number" data-target="70">0</div>
+          <div class="stat-unit">+</div>
+          <div class="stat-label">Test Missions<br />Evaluated</div>
+        </div>
+        <div class="stat-card" id="stat-4">
+          <div class="stat-number" data-target="3">0</div>
+          <div class="stat-unit">x</div>
+          <div class="stat-label">VLM Backends<br />Compared</div>
+        </div>
+        <div class="stat-card" id="stat-5">
+          <div class="stat-number" data-target="2.92">0</div>
+          <div class="stat-unit">s</div>
+          <div class="stat-label">Avg. Inference<br />Latency (Qwen)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== ABSTRACT ====== -->
+  <section class="section" id="abstract">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Overview</div>
+        <h2 class="section-title">Abstract</h2>
+      </div>
+      <div class="abstract-layout">
+        <div class="abstract-text">
+          <p class="abstract-lead">
+            The rapid progress of <strong>Large Language Models</strong> and <strong>Vision Language Models</strong> has
+            introduced
+            new paradigms for Human-Robot Interaction. While Vision Language Action models propose
+            end-to-end control, they currently lack the safety guarantees and long-horizon reasoning
+            required for collision-free operations in dynamic environments.
+          </p>
+          <p>
+            This thesis proposes a <strong>hybrid neuro-symbolic architecture</strong> that integrates the semantic
+            perception of VLMs with the deterministic ability of classical automated planning. A
+            fine-tuned VLM interprets natural language instructions and visual observations to generate
+            a structured JSON payload, which a Symbolic Planning Gateway converts into a
+            <strong>PDDL problem file</strong>. An independent planner then computes safe, collision-free trajectories
+            for the UAV.
+          </p>
+          <p>
+            The system decouples perception from control — the VLM operates strictly as a
+            <em>semantic translator</em>, while PDDL enforces immutable physics and safety constraints.
+            Three VLM backends (Qwen2.5-VL-7B, Gemma3-4B, Moondream2) are evaluated in a
+            Gazebo warehouse simulation across 70 test missions per model.
+          </p>
+          <blockquote class="pull-quote">
+            "Constraining a probabilistic generative model within a deterministic symbolic planning
+            framework achieves near-perfect structural correctness and verifiable operational safety,
+            while preserving natural language accessibility."
+          </blockquote>
+        </div>
+        <div class="abstract-keywords">
+          <h3>Keywords</h3>
+          <div class="keyword-cloud">
+            <span class="keyword tag-primary">Neuro-Symbolic AI</span>
+            <span class="keyword tag-secondary">Vision Language Models</span>
+            <span class="keyword tag-primary">PDDL Planning</span>
+            <span class="keyword tag-accent">UAV Autonomy</span>
+            <span class="keyword tag-secondary">ROS2</span>
+            <span class="keyword tag-primary">QLoRA Fine-tuning</span>
+            <span class="keyword tag-accent">Gazebo Simulation</span>
+            <span class="keyword tag-secondary">PlanSys2 / POPF</span>
+            <span class="keyword tag-primary">Hallucination Mitigation</span>
+            <span class="keyword tag-accent">Warehouse Robotics</span>
+          </div>
+          <div class="thesis-meta-box">
+            <div class="thesis-meta-row">
+              <span>University</span>
+              <strong>TU Dortmund</strong>
+            </div>
+            <div class="thesis-meta-row">
+              <span>Faculty</span>
+              <strong>Maschinenbau (FLW)</strong>
+            </div>
+            <div class="thesis-meta-row">
+              <span>Program</span>
+              <strong>Automation and Robotics</strong>
+            </div>
+            <div class="thesis-meta-row">
+              <span>Co-Supervisor</span>
+              <strong>Aaron Xavier</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PROBLEM STATEMENT ====== -->
+  <section class="section section-dark" id="problem">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Motivation</div>
+        <h2 class="section-title">The Problem with End-to-End Neural Control</h2>
+        <p class="section-subtitle">
+          Direct Vision-Language-Action models suffer from fundamental safety and reliability gaps.
+        </p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card" id="prob-1">
+          <div class="problem-icon">⚠️</div>
+          <h3>No Safety Guarantees</h3>
+          <p>VLA models generate actions probabilistically — they cannot formally guarantee collision avoidance,
+            altitude limits, or constraint adherence in safety-critical logistics environments.</p>
+        </div>
+        <div class="problem-card" id="prob-2">
+          <div class="problem-icon">🌀</div>
+          <h3>Hallucinations</h3>
+          <p>Generative models routinely hallucinate object identities, spatial relationships, and action sequences. A
+            3-block sequential task achieves only 34% success; a 4-block variant drops to 0%.</p>
+        </div>
+        <div class="problem-card" id="prob-3">
+          <div class="problem-icon">🔋</div>
+          <h3>Energy Inefficiency</h3>
+          <p>Fine-tuning an end-to-end VLA model consumes <strong>61.7 MJ</strong> and takes over 40 hours. A targeted
+            neuro-symbolic model requires just <strong>0.65 MJ</strong> and 34 minutes.</p>
+        </div>
+        <div class="problem-card" id="prob-4">
+          <div class="problem-icon">🎯</div>
+          <h3>Poor Long-Horizon Planning</h3>
+          <p>Autoregressive token generation lacks persistent backtracking and strict constraint enforcement needed for
+            long multi-step mission sequences in complex dynamic environments.</p>
+        </div>
+        <div class="problem-card" id="prob-5">
+          <div class="problem-icon">🛡️</div>
+          <h3>Adversarial Vulnerability</h3>
+          <p>VLA models degrade 21.2% under basic prompt attacks and 30.2% under perception attacks — natural lighting
+            variation, typography overlays, and adversarial patches all exploit these weaknesses.</p>
+        </div>
+        <div class="problem-card" id="prob-6">
+          <div class="problem-icon">🧩</div>
+          <h3>The Proposed Solution</h3>
+          <p class="solution-highlight">Decouple perception and control. Let the VLM <em>see and describe</em> — let
+            PDDL <em>plan and enforce</em>. Combine the flexibility of neural models with the rigor of formal methods.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== ARCHITECTURE ====== -->
+  <section class="section" id="architecture">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">System Design</div>
+        <h2 class="section-title">Three-Layer Neuro-Symbolic Architecture</h2>
+        <p class="section-subtitle">Each layer has a distinct responsibility, enabling modular development, testing, and
+          replacement.</p>
+      </div>
+
+      <div class="arch-visual">
+        <img src="architecture_diagram.png"
+          alt="Three-layer neuro-symbolic system architecture showing VLM, PDDL broker and hardware execution layers"
+          class="arch-img" />
+      </div>
+
+      <div class="arch-layers">
+        <div class="arch-layer" id="layer-1">
+          <div class="layer-number">01</div>
+          <div class="layer-content">
+            <h3>Semantic Perception Layer</h3>
+            <p>A fine-tuned VLM (Qwen2.5-VL, Gemma3, or Moondream2) receives the drone's front-facing camera image and a
+              natural language instruction. Instead of generating PDDL directly, it populates a <strong>rigidly typed
+                JSON schema</strong>: detected objects, their spatial coordinates, semantic properties, and the goal
+              state.</p>
+            <ul class="layer-bullets">
+              <li>Fine-tuned using QLoRA on custom Gazebo FPV dataset (1,200 images)</li>
+              <li>JSON output acts as a typed contract — eliminates syntactic hallucination</li>
+              <li>Supports bounding box and point-based object localization</li>
+            </ul>
+            <div class="layer-tech">
+              <span class="tech-badge">Qwen2.5-VL-7B</span>
+              <span class="tech-badge">Gemma3-4B</span>
+              <span class="tech-badge">Moondream2</span>
+              <span class="tech-badge">QLoRA / Unsloth</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="arch-connector">
+          <div class="connector-line"></div>
+          <div class="connector-label">JSON Payload → PDDL Problem File</div>
+        </div>
+
+        <div class="arch-layer" id="layer-2">
+          <div class="layer-number">02</div>
+          <div class="layer-content">
+            <h3>Deterministic Planning Broker</h3>
+            <p>The <strong>Symbolic Planning Gateway</strong> parses the JSON and converts it into a syntactically valid
+              PDDL problem file. It validates all detected objects against the static domain registry — any hallucinated
+              object or infeasible goal state is rejected before planning begins.</p>
+            <ul class="layer-bullets">
+              <li>PDDL Domain encodes immutable physics: airspace bounds, action preconditions, payload limits</li>
+              <li>Durative actions: <code>take_off (5s)</code>, <code>fly_to_target (5s)</code>,
+                <code>scan_target (4s)</code>, <code>land (5s)</code></li>
+              <li>POPF solver generates temporally optimal action sequences</li>
+              <li>Gateway also fuses depth camera data to produce 3D target coordinates</li>
+            </ul>
+            <div class="layer-tech">
+              <span class="tech-badge">PDDL 2.1</span>
+              <span class="tech-badge">PlanSys2</span>
+              <span class="tech-badge">POPF Solver</span>
+              <span class="tech-badge">ROS2 Humble</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="arch-connector">
+          <div class="connector-line"></div>
+          <div class="connector-label">Optimal Action Sequence → Motor Commands</div>
+        </div>
+
+        <div class="arch-layer" id="layer-3">
+          <div class="layer-number">03</div>
+          <div class="layer-content">
+            <h3>Hardware Execution Layer</h3>
+            <p>The <code>vpdroneparser.py</code> node translates the symbolic plan into real-time motor control. It
+              subscribes to <code>/drone/gt_pose</code> for ground-truth state feedback and uses a <strong>proportional
+                velocity controller</strong> (Kp = 0.5) to navigate waypoints with a 0.3m arrival tolerance.</p>
+            <ul class="layer-bullets">
+              <li>Minimum altitude clamp at 0.75m — prevents ground collision in all 70 missions</li>
+              <li>Yaw pre-alignment keeps target in front-camera FoV during approach</li>
+              <li>Real-time Twist messages on <code>/drone/cmd_vel</code></li>
+              <li>Chat-based UI via <code>remote_brain_node.py</code> for human-in-the-loop approval</li>
+            </ul>
+            <div class="layer-tech">
+              <span class="tech-badge">Gazebo 11</span>
+              <span class="tech-badge">sjtu-drone</span>
+              <span class="tech-badge">Parrot AR.Drone 2.0</span>
+              <span class="tech-badge">P-Controller</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== VLM COMPARISON ====== -->
+  <section class="section section-dark" id="vlm">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Semantic Perception</div>
+        <h2 class="section-title">Vision Language Model Comparison</h2>
+        <p class="section-subtitle">Three architectures spanning 1.86B to 7B parameters, each offering distinct
+          speed-accuracy trade-offs.</p>
+      </div>
+
+      <div class="vlm-cards">
+        <div class="vlm-card vlm-winner" id="vlm-qwen">
+          <div class="vlm-badge">Best Accuracy</div>
+          <div class="vlm-icon">🏆</div>
+          <h3>Qwen2.5-VL-7B</h3>
+          <div class="vlm-params">≈ 7B parameters</div>
+          <p>Dynamic-resolution ViT backbone with Multimodal Rotary Position Embeddings (MRoPE). Processes images at
+            native aspect ratios without distortion — ideal for spatial reasoning over FPV drone feeds.</p>
+          <div class="vlm-specs">
+            <div class="vlm-spec">
+              <span>Architecture</span>
+              <span>Native ViT + Transformer (32 layers)</span>
+            </div>
+            <div class="vlm-spec">
+              <span>Key Feature</span>
+              <span>Dynamic resolution, bounding-box output</span>
+            </div>
+            <div class="vlm-spec">
+              <span>Semantic Correctness</span>
+              <span class="highlight-green">99.29%</span>
+            </div>
+            <div class="vlm-spec">
+              <span>Task Accuracy</span>
+              <span class="highlight-green">63.29%</span>
+            </div>
+            <div class="vlm-spec">
+              <span>Avg. Latency</span>
+              <span>2.92 s</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="vlm-card" id="vlm-gemma">
+          <div class="vlm-badge vlm-badge-secondary">Best Vocabulary</div>
+          <div class="vlm-icon">🔬</div>
+          <h3>Gemma3-4B</h3>
+          <div class="vlm-params">≈ 4.3B parameters</div>
+          <p>Google's resource-efficient multimodal model with a SigLIP-based vision encoder and Pan &amp; Scan adaptive
+            cropping. Massive 128K token context window enables rich system prompting.</p>
+          <div class="vlm-specs">
+            <div class="vlm-spec">
+              <span>Architecture</span>
+              <span>SigLIP ViT (400M) + Hybrid Attention</span>
+            </div>
+            <div class="vlm-spec">
+              <span>Key Feature</span>
+              <span>128K context, 256K BPE vocab</span>
+            </div>
+            <div class="vlm-spec">
+              <span>Semantic Correctness</span>
+              <span class="highlight-blue">98.57%</span>
+            </div>
+            <div class="vlm-spec">
+              <span>Task Accuracy</span>
+              <span class="highlight-blue">54.29%</span>
+            </div>
+            <div class="vlm-spec">
+              <span>Avg. Latency</span>
+              <span>4.70 s</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="vlm-card" id="vlm-moon">
+          <div class="vlm-badge vlm-badge-accent">Fastest</div>
+          <div class="vlm-icon">⚡</div>
+          <h3>Moondream2</h3>
+          <div class="vlm-params">≈ 1.86B parameters</div>
+          <p>Ultra-compact VLM designed for edge deployment. SigLIP encoder with Phi-family transformer decoder. 4.12×
+            faster than Gemma3, making it suitable for latency-critical single-target missions.</p>
+          <div class="vlm-specs">
+            <div class="vlm-spec">
+              <span>Architecture</span>
+              <span>SigLIP ViT + Phi-1.5 Transformer</span>
+            </div>
+            <div class="vlm-spec">
+              <span>Key Feature</span>
+              <span>Edge-optimized, Apache 2.0 license</span>
+            </div>
+            <div class="vlm-spec">
+              <span>Semantic Correctness</span>
+              <span class="highlight-orange">92.86%</span>
+            </div>
+            <div class="vlm-spec">
+              <span>Task Accuracy</span>
+              <span class="highlight-orange">41.43%</span>
+            </div>
+            <div class="vlm-spec">
+              <span>Avg. Latency</span>
+              <span class="highlight-green">1.14 s</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fine-tuning journey -->
+      <div class="finetuning-section">
+        <h3 class="subsection-title">Fine-Tuning Journey: Zero-Shot → JSON-Intermediate</h3>
+        <div class="finetuning-steps">
+          <div class="ft-step">
+            <div class="ft-step-num">01</div>
+            <h4>Zero-Shot PDDL Generation</h4>
+            <p>Prompted VLMs to directly output PDDL. Across 140 prompts, exact-match accuracy was consistently
+              <strong>&lt;1%</strong>. Even minor parenthesis or predicate errors cause solver rejection — probabilistic
+              generation is incompatible with formal grammar.</p>
+            <div class="ft-result ft-bad">Exact Match: &lt;1%</div>
+          </div>
+          <div class="ft-arrow">→</div>
+          <div class="ft-step">
+            <div class="ft-step-num">02</div>
+            <h4>Fine-Tuned PDDL Generation</h4>
+            <p>QLoRA fine-tuning on 2,400 Blocksworld/Logistics/Gripper/Rover PDDL pairs using Unsloth toolkit.
+              Significant improvement but still insufficient for safety-critical deployment.</p>
+            <div class="ft-result ft-ok">Exact Match: 31.0% · F1: 0.640</div>
+          </div>
+          <div class="ft-arrow">→</div>
+          <div class="ft-step">
+            <div class="ft-step-num">03</div>
+            <h4>JSON-Intermediate Architecture</h4>
+            <p>VLM generates typed JSON, Symbolic Planning Gateway converts to PDDL. The typed schema absorbs syntactic
+              complexity — even the smallest model achieves 92.86% semantic correctness.</p>
+            <div class="ft-result ft-great">Semantic Correctness: 92.86–99.29%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== RESULTS ====== -->
+  <section class="section" id="results">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Evaluation</div>
+        <h2 class="section-title">Experimental Results</h2>
+        <p class="section-subtitle">70 end-to-end missions per VLM backend in a 30×30m Gazebo warehouse simulation.</p>
+      </div>
+
+      <!-- Drone performance table -->
+      <div class="results-block">
+        <h3 class="subsection-title">Drone Action Execution Metrics</h3>
+        <div class="table-wrapper">
+          <table class="results-table" id="drone-perf-table">
+            <thead>
+              <tr>
+                <th>Action</th>
+                <th>Success Rate</th>
+                <th>Mean Execution Time</th>
+                <th>Mean Position Error</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>take_off</code></td>
+                <td><span class="badge-success">100%</span></td>
+                <td>5.2 s</td>
+                <td>0.08 m</td>
+              </tr>
+              <tr>
+                <td><code>fly_to_target</code></td>
+                <td><span class="badge-warning">97.1%</span></td>
+                <td>14.6 s</td>
+                <td>0.21 m</td>
+              </tr>
+              <tr>
+                <td><code>scan_target</code></td>
+                <td><span class="badge-success">100%</span></td>
+                <td>5.0 s</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><code>land</code></td>
+                <td><span class="badge-success">100%</span></td>
+                <td>5.4 s</td>
+                <td>0.05 m</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- VLM pipeline comparison -->
+      <div class="results-block">
+        <h3 class="subsection-title">Neuro-Symbolic Pipeline: VLM Backend Comparison</h3>
+        <div class="table-wrapper">
+          <table class="results-table" id="vlm-perf-table">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Semantic Correctness</th>
+                <th>Task Accuracy</th>
+                <th>Avg. Latency</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-winner">
+                <td><strong>Qwen2.5-VL-7B</strong></td>
+                <td><span class="badge-success">99.29%</span></td>
+                <td><span class="badge-success">63.29%</span></td>
+                <td>2.92 s</td>
+              </tr>
+              <tr>
+                <td>Gemma3-4B</td>
+                <td><span class="badge-success">98.57%</span></td>
+                <td><span class="badge-warning">54.29%</span></td>
+                <td>4.70 s</td>
+              </tr>
+              <tr>
+                <td>Moondream2 (2B)</td>
+                <td><span class="badge-warning">92.86%</span></td>
+                <td><span class="badge-neutral">41.43%</span></td>
+                <td><span class="badge-success">1.14 s</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Safety summary -->
+      <div class="results-block">
+        <h3 class="subsection-title">Safety Constraint Adherence (70 Missions)</h3>
+        <div class="safety-grid">
+          <div class="safety-item safety-pass">
+            <div class="safety-icon">✓</div>
+            <div class="safety-text">
+              <strong>0 / 70</strong>
+              <span>Altitude violations (&lt;0.75m)</span>
+            </div>
+          </div>
+          <div class="safety-item safety-pass">
+            <div class="safety-icon">✓</div>
+            <div class="safety-text">
+              <strong>0 / 70</strong>
+              <span>Arrival tolerance violations</span>
+            </div>
+          </div>
+          <div class="safety-item safety-pass">
+            <div class="safety-icon">✓</div>
+            <div class="safety-text">
+              <strong>0 / 70</strong>
+              <span>Yaw alignment failures</span>
+            </div>
+          </div>
+          <div class="safety-item safety-reject">
+            <div class="safety-icon">🛡</div>
+            <div class="safety-text">
+              <strong>4 Rejected</strong>
+              <span>Hallucinated object at gateway</span>
+            </div>
+          </div>
+          <div class="safety-item safety-reject">
+            <div class="safety-icon">🛡</div>
+            <div class="safety-text">
+              <strong>2 Rejected</strong>
+              <span>Infeasible goal state at solver</span>
+            </div>
+          </div>
+        </div>
+        <p class="safety-note">
+          ✦ The PDDL gateway acted as a hard hallucination filter — no rejected mission ever reached the hardware layer.
+          Zero execution-level safety violations across all 70 × 3 = 210 model-missions.
+        </p>
+      </div>
+
+      <!-- Chart bars -->
+      <div class="results-block">
+        <h3 class="subsection-title">Task Accuracy vs. Inference Latency Trade-off</h3>
+        <div class="chart-container">
+          <div class="chart-legend">
+            <span class="legend-item"><span class="legend-dot dot-qwen"></span> Qwen2.5-VL-7B</span>
+            <span class="legend-item"><span class="legend-dot dot-gemma"></span> Gemma3-4B</span>
+            <span class="legend-item"><span class="legend-dot dot-moon"></span> Moondream2</span>
+          </div>
+          <div class="bar-chart">
+            <div class="bar-group">
+              <div class="bar-label">Task Accuracy</div>
+              <div class="bars">
+                <div class="bar-item">
+                  <div class="bar bar-qwen" style="--target-width: 63.29%;" data-value="63.29%"></div>
+                  <span>63.3%</span>
+                </div>
+                <div class="bar-item">
+                  <div class="bar bar-gemma" style="--target-width: 54.29%;" data-value="54.29%"></div>
+                  <span>54.3%</span>
+                </div>
+                <div class="bar-item">
+                  <div class="bar bar-moon" style="--target-width: 41.43%;" data-value="41.43%"></div>
+                  <span>41.4%</span>
+                </div>
+              </div>
+            </div>
+            <div class="bar-group">
+              <div class="bar-label">Semantic Correctness</div>
+              <div class="bars">
+                <div class="bar-item">
+                  <div class="bar bar-qwen" style="--target-width: 99.29%;" data-value="99.29%"></div>
+                  <span>99.3%</span>
+                </div>
+                <div class="bar-item">
+                  <div class="bar bar-gemma" style="--target-width: 98.57%;" data-value="98.57%"></div>
+                  <span>98.6%</span>
+                </div>
+                <div class="bar-item">
+                  <div class="bar bar-moon" style="--target-width: 92.86%;" data-value="92.86%"></div>
+                  <span>92.9%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== SIMULATION ====== -->
+  <section class="section section-dark" id="simulation">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Environment</div>
+        <h2 class="section-title">Gazebo Warehouse Simulation</h2>
+        <p class="section-subtitle">A high-fidelity 30×30m indoor logistics environment built on
+          <strong>sjtu-drone</strong> and <strong>ROS2 Humble</strong>.</p>
+      </div>
+      <div class="sim-layout">
+        <div class="sim-specs">
+          <div class="sim-spec-card">
+            <h4>Drone Hardware</h4>
+            <p>Parrot AR.Drone 2.0 model (1.477 kg) with URDF-defined kinematics, inertia tensors, and quadrotor
+              dynamics simulation.</p>
+          </div>
+          <div class="sim-spec-card">
+            <h4>Sensor Suite</h4>
+            <ul>
+              <li><strong>Front Camera</strong>: 640×360 @ 60fps, 2.09 rad FoV</li>
+              <li><strong>Downward Camera</strong>: 15fps, 1.047 rad FoV</li>
+              <li><strong>Sonar</strong>: 0.02–10m @ 30Hz altitude</li>
+              <li><strong>Depth Camera</strong>: 3D coordinate estimation</li>
+            </ul>
+          </div>
+          <div class="sim-spec-card">
+            <h4>World Elements</h4>
+            <ul>
+              <li>30m × 30m enclosed floor</li>
+              <li>2× shelving units (10×2×3m)</li>
+              <li>Charging station + Loading/Shipping zones</li>
+              <li>4 bounding walls for geofencing</li>
+            </ul>
+          </div>
+          <div class="sim-spec-card">
+            <h4>Software Stack</h4>
+            <ul>
+              <li>Ubuntu 22.04 LTS</li>
+              <li>ROS2 Humble Hawksbill</li>
+              <li>Gazebo 11 (ODE backend)</li>
+              <li>GCC 11.x / C++17 / Colcon</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FUTURE WORK ====== -->
+  <section class="section" id="future">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Roadmap</div>
+        <h2 class="section-title">Future Directions</h2>
+        <p class="section-subtitle">Five key research avenues to evolve the neuro-symbolic framework.</p>
+      </div>
+      <div class="future-grid">
+        <div class="future-card" id="fw-1">
+          <div class="future-icon">🌍</div>
+          <h3>Closing the Sim-to-Real Gap</h3>
+          <p>Collect real-world warehouse imagery and apply domain randomization (texture, lighting, noise) at the
+            Gazebo level to bridge the synthetic-to-real perception gap before hardware deployment.</p>
+        </div>
+        <div class="future-card" id="fw-2">
+          <div class="future-icon">🔭</div>
+          <h3>Scaling to Stronger VLMs</h3>
+          <p>Evaluate Qwen2.5-VL-72B and closed-source multimodal models to determine whether the 63.3% task accuracy
+            ceiling is model-capacity constrained or a fundamental JSON-grounding limit.</p>
+        </div>
+        <div class="future-card" id="fw-3">
+          <div class="future-icon">🕸️</div>
+          <h3>Multi-Agent Swarm Planning</h3>
+          <p>Extend POPF to multi-drone coordination using multi-agent PDDL extensions, enabling parallel inventory
+            scanning across warehouse aisles with shared resource constraints.</p>
+        </div>
+        <div class="future-card" id="fw-4">
+          <div class="future-icon">🆚</div>
+          <h3>MCP Server Benchmarking</h3>
+          <p>Systematically compare the PDDL broker to a Model Context Protocol-based direct drone control approach
+            across task accuracy, safety adherence, latency, and robustness to adversarial prompting.</p>
+        </div>
+        <div class="future-card" id="fw-5">
+          <div class="future-icon">🤖</div>
+          <h3>Reactive Obstacle Avoidance</h3>
+          <p>Integrate a local reactive planner (DWA or OctoMap-based RRT) as a second safety layer that operates
+            independently of the symbolic plan to handle dynamic obstacles like human workers.</p>
+        </div>
+        <div class="future-card" id="fw-6">
+          <div class="future-icon">🏭</div>
+          <h3>Real Hardware Deployment</h3>
+          <p>Transition from simulation to physical Parrot AR.Drone using calibrated intrinsics/extrinsics, re-tuned Kp
+            controller, and a real-time SLAM system to replace ground-truth pose feedback.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CITATION ====== -->
+  <section class="section section-dark" id="cite">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Reference</div>
+        <h2 class="section-title">Cite This Work</h2>
+      </div>
+      <div class="citation-box">
+        <pre id="bibtex-block">@mastersthesis{prabhu2026neurosymbolic,
+  author    = {Pranav Sathish Prabhu},
+  title     = {Integration of Structured Planning with Vision Language
+               Models for Physical Agents},
+  school    = {Technische Universit{\"a}t Dortmund},
+  year      = {2026},
+  type      = {Masterarbeit},
+  note      = {Lehrstuhl f{\"u}r F{\"o}rder- und Lagerwesen (FLW)}
+}</pre>
+        <button class="copy-btn" id="copy-bibtex" onclick="copyBibtex()" aria-label="Copy BibTeX">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+          </svg>
+          Copy BibTeX
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <strong>Pranav Sathish Prabhu</strong>
+          <span>M.Sc. Automation and Robotics · TU Dortmund</span>
+          <span>Supervisors: Prof. Dr.-Ing. Alice Kirchheim · Aaron Xavier</span>
+        </div>
+        <div class="footer-right">
+          <a href="https://flw.mb.tu-dortmund.de/" target="_blank" class="footer-link">FLW · TU Dortmund</a>
+          <a href="Masterarbeit_Prabhu.pdf" class="footer-link">Download Thesis PDF</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Thesis research conducted on neuro-symbolic AI for autonomous UAV logistics.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
